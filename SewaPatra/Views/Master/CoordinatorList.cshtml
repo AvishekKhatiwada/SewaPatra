@@ -1,0 +1,70 @@
+﻿@model List<SewaPatra.Models.Coordinator>
+
+@{
+    ViewData["Title"] = "Coordinaotr List";
+}
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="pagetitle mt-2">
+                        <h1>Area List</h1>
+                        <nav>
+                            <ol class="breadcrumb">
+                                @* <li class="breadcrumb-item"><a href="index.html">Home</a></li> *@
+                                <li class="breadcrumb-item">Master</li>
+                                <li class="breadcrumb-item active">Coordinator List</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <div style="display:flex;justify-content:flex-end;">
+                        <a asp-controller="Master" asp-action="Coordinator" style="margin-right: 13.6%;font-size: 12px; padding: 2px 8px;" class="btn btn-warning btn-sm">Add New</a>
+                    </div>
+                    <table class="table datatable">
+                        <thead>
+                            <tr>
+                                <th>SN</th>
+                                <th>Name</th>
+                                <th>Address</th>
+                                <th>City</th>
+                                <th>Mobile No</th>
+                                <th>Alt Mobile No</th>
+                                <th>Email</th>
+                                <th>Area</th>
+                                <th>Location</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model != null && Model.Count > 0)
+                            {
+                                int sno = 1;
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@sno</td>
+                                        <td>@item.Name</td>
+                                        <td>@item.Address</td>
+                                        <td>@item.City</td>
+                                        <td>@item.Mobile_No</td>
+                                        <td>@item.Alt_Mobile_no</td>
+                                        <td>@item.Email</td>
+                                        <td>@item.Area</td>
+                                        <td>@item.location</td>
+                                        <td>
+                                            <a asp-controller="Master" asp-action="EditCoordinator" asp-route-id="@item.Id" style="background-color: #F1592A;color: #000000; font-size: 9px; padding: 2px 8px;" class="btn btn-sm">Edit</a>
+                                            <a asp-controller="Master" asp-action="DeleteCoordinator" asp-route-id="@item.Id" style="background-color: #F1592A;color: #000000; font-size: 9px; padding: 2px 8px;" class="btn btn-sm">Delete</a>
+                                        </td>
+                                    </tr>
+                                    sno++;
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

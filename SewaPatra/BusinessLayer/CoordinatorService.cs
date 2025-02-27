@@ -13,6 +13,6 @@ namespace SewaPatra.BusinessLayer
         public bool InsertCoordinator(Coordinator coordinator)
         {
             return _coordinatorRepository.InsertCoordinator(coordinator);
-        }
+        }        
     }
 }

@@ -10,8 +10,16 @@
     </div>
 }
 <div class="card-body">
-    <h5 class="card-title">Edit Area</h5>
-
+    <div class="pagetitle mt-2">
+        <h1>Edit Area</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Master</a></li>
+                <li class="breadcrumb-item">Area</li>
+                <li class="breadcrumb-item active">Edit Area</li>
+            </ol>
+        </nav>
+    </div>
     <!-- Vertical Form -->
     <form class="row g-3" method="post" asp-action="EditArea" asp-controller="Master">
         <input type="hidden" asp-for="Id" />

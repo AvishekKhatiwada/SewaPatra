@@ -80,8 +80,38 @@ namespace SewaPatra.Controllers
         }
         #endregion
         #region Coordinator
+        public IActionResult CoordinatorList()
+        {
+            return View();
+        }
         public IActionResult Coordinator()
         {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Coordinator(Coordinator coordinator)
+        {
+            if (ModelState.IsValid)
+            {
+                bool isInserted = _CoordinatorService.InsertCoordinator(coordinator);
+                if (isInserted)
+                {
+                    ViewBag.Message = "Coordinator Added Successfully";
+                }
+                else
+                {
+                    ViewBag.Message = "Failed to Add Coordinator";
+                }
+            }
+            else
+            {
+                ViewBag.Message = "Invalid data";
+            }
+            return View();
+        }
+        public IActionResult EditCoordinator(int id)
+        {
+            //var coordinator = _CoordinatorService.GetCoordinatorById(id);
             return View();
         }
         #endregion
