@@ -1,0 +1,53 @@
+﻿@model List<SewaPatra.Models.Area>
+
+@{
+    ViewData["Title"] = "Area List";
+}
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Area Lists</h5>
+                    <a asp-controller="Master" asp-action="Area" style="font-size: 12px; padding: 2px 8px;" class="btn btn-warning btn-sm">Add New</a>
+                    <!-- Table with stripped rows -->
+                    <table class="table datatable">
+                        <thead>
+                            <tr>
+                                <th>SN</th>
+                                <th>Area Name</th>
+                                <th>Area Type</th>
+                                <th>Under</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if(Model != null && Model.Count > 0)
+                            {
+                                int sno = 1;
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@sno</td>
+                                        <td>@item.Area_name</td>
+                                        <td>@item.Area_type</td>
+                                        <td>@item.Under</td>
+                                        <td>
+                                            <a asp-controller="Master" asp-action="EditArea" asp-route-id="@item.Id" style="background-color: #F1592A;color: #000000; font-size: 9px; padding: 2px 8px;" class="btn btn-sm">Edit</a>
+                                            <a asp-controller="Master" asp-action="DeleteArea" asp-route-id="@item.Id" style="background-color: #F1592A;color: #000000; font-size: 9px; padding: 2px 8px;" class="btn btn-sm">Delete</a>
+                                        </td>
+                                    </tr>
+                                    sno++;
+                                }
+                            }                            
+                        </tbody>
+                    </table>
+                    <!-- End Table with stripped rows -->
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

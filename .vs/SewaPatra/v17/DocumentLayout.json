@@ -1,0 +1,118 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Project\\Sewapatra\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5D7DE400-437D-4D4C-8AF4-DF536EF923A2}|SewaPatra\\SewaPatra.csproj|d:\\project\\sewapatra\\sewapatra\\dataaccess\\arearepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5D7DE400-437D-4D4C-8AF4-DF536EF923A2}|SewaPatra\\SewaPatra.csproj|solutionrelative:sewapatra\\dataaccess\\arearepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5D7DE400-437D-4D4C-8AF4-DF536EF923A2}|SewaPatra\\SewaPatra.csproj|d:\\project\\sewapatra\\sewapatra\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{5D7DE400-437D-4D4C-8AF4-DF536EF923A2}|SewaPatra\\SewaPatra.csproj|solutionrelative:sewapatra\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5D7DE400-437D-4D4C-8AF4-DF536EF923A2}|SewaPatra\\SewaPatra.csproj|d:\\project\\sewapatra\\sewapatra\\businesslayer\\areaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5D7DE400-437D-4D4C-8AF4-DF536EF923A2}|SewaPatra\\SewaPatra.csproj|solutionrelative:sewapatra\\businesslayer\\areaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5D7DE400-437D-4D4C-8AF4-DF536EF923A2}|SewaPatra\\SewaPatra.csproj|d:\\project\\sewapatra\\sewapatra\\controllers\\mastercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5D7DE400-437D-4D4C-8AF4-DF536EF923A2}|SewaPatra\\SewaPatra.csproj|solutionrelative:sewapatra\\controllers\\mastercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5D7DE400-437D-4D4C-8AF4-DF536EF923A2}|SewaPatra\\SewaPatra.csproj|d:\\project\\sewapatra\\sewapatra\\views\\master\\editarea.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5D7DE400-437D-4D4C-8AF4-DF536EF923A2}|SewaPatra\\SewaPatra.csproj|solutionrelative:sewapatra\\views\\master\\editarea.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5D7DE400-437D-4D4C-8AF4-DF536EF923A2}|SewaPatra\\SewaPatra.csproj|d:\\project\\sewapatra\\sewapatra\\views\\master\\area.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5D7DE400-437D-4D4C-8AF4-DF536EF923A2}|SewaPatra\\SewaPatra.csproj|solutionrelative:sewapatra\\views\\master\\area.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Project\\Sewapatra\\SewaPatra\\appsettings.json",
+              "RelativeDocumentMoniker": "SewaPatra\\appsettings.json",
+              "ToolTip": "D:\\Project\\Sewapatra\\SewaPatra\\appsettings.json",
+              "RelativeToolTip": "SewaPatra\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-02-27T15:59:57.269Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AreaRepository.cs",
+              "DocumentMoniker": "D:\\Project\\Sewapatra\\SewaPatra\\DataAccess\\AreaRepository.cs",
+              "RelativeDocumentMoniker": "SewaPatra\\DataAccess\\AreaRepository.cs",
+              "ToolTip": "D:\\Project\\Sewapatra\\SewaPatra\\DataAccess\\AreaRepository.cs",
+              "RelativeToolTip": "SewaPatra\\DataAccess\\AreaRepository.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAADgv24AAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-27T12:29:27.376Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AreaService.cs",
+              "DocumentMoniker": "D:\\Project\\Sewapatra\\SewaPatra\\BusinessLayer\\AreaService.cs",
+              "RelativeDocumentMoniker": "SewaPatra\\BusinessLayer\\AreaService.cs",
+              "ToolTip": "D:\\Project\\Sewapatra\\SewaPatra\\BusinessLayer\\AreaService.cs",
+              "RelativeToolTip": "SewaPatra\\BusinessLayer\\AreaService.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAowB4AAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-27T12:29:08.107Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Area.cshtml",
+              "DocumentMoniker": "D:\\Project\\Sewapatra\\SewaPatra\\Views\\Master\\Area.cshtml",
+              "RelativeDocumentMoniker": "SewaPatra\\Views\\Master\\Area.cshtml",
+              "ToolTip": "D:\\Project\\Sewapatra\\SewaPatra\\Views\\Master\\Area.cshtml",
+              "RelativeToolTip": "SewaPatra\\Views\\Master\\Area.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-27T12:24:32.824Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "EditArea.cshtml",
+              "DocumentMoniker": "D:\\Project\\Sewapatra\\SewaPatra\\Views\\Master\\EditArea.cshtml",
+              "RelativeDocumentMoniker": "SewaPatra\\Views\\Master\\EditArea.cshtml",
+              "ToolTip": "D:\\Project\\Sewapatra\\SewaPatra\\Views\\Master\\EditArea.cshtml",
+              "RelativeToolTip": "SewaPatra\\Views\\Master\\EditArea.cshtml",
+              "ViewState": "AgIAAAcAAAAAAAAAAADwvyMAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-27T12:23:36.994Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MasterController.cs",
+              "DocumentMoniker": "D:\\Project\\Sewapatra\\SewaPatra\\Controllers\\MasterController.cs",
+              "RelativeDocumentMoniker": "SewaPatra\\Controllers\\MasterController.cs",
+              "ToolTip": "D:\\Project\\Sewapatra\\SewaPatra\\Controllers\\MasterController.cs",
+              "RelativeToolTip": "SewaPatra\\Controllers\\MasterController.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAIwD8AAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-27T09:47:23.312Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
