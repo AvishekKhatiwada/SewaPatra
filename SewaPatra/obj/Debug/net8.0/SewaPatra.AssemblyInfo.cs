@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SewaPatra")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e69a369f5386a0dfea3d446a5f929c173f6a9fce")]
 [assembly: System.Reflection.AssemblyProductAttribute("SewaPatra")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SewaPatra")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

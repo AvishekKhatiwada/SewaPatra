@@ -1,8 +1,16 @@
 ﻿
 <div class="card-body">
-    <h5 class="card-title">Coordinator Master</h5>
-
-    <form class="row g-3">
+    <div class="pagetitle mt-2">
+        <h1>Add Coordinator</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Master</a></li>
+                <li class="breadcrumb-item">Coordinator</li>
+                <li class="breadcrumb-item active">Add Coordinator</li>
+            </ol>
+        </nav>
+    </div>
+    <form class="row g-3" method="post" asp-action="Coordinator" asp-controller="Master">
         <div class="col-md-12">
             <label for="Name" class="form-label">Name</label>
             <input type="text" class="form-control" id="Name" required>
@@ -13,7 +21,7 @@
         </div>
         <div class="col-md-6">
             <label for="mobileNo" class="form-label">Mobile No</label>
-            <input type="password" class="form-control" id="mobileNo">
+            <input type="text" class="form-control" id="mobileNo">
         </div>
         <div class="col-12">
             <label for="address" class="form-label">Address</label>
@@ -38,14 +46,14 @@
             <label for="area" class="form-label">Area</label>
             <select id="area" class="form-select">
                 <option selected>Choose...</option>
-                <option>...</option>
+                <option value="1"></option>
             </select>
         </div>
         <div class="col-md-4">
             <label for="under" class="form-label">Under</label>
             <select id="under" class="form-select">
                 <option selected>Choose...</option>
-                <option>...</option>
+                <option value="1">...</option>
             </select>
         </div>
         <div class="col-md-4">
