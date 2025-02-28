@@ -1,0 +1,14 @@
+# Ignore appsettings.development.json and appsettings.json
+appsettings.development.json
+appsettings.json
+
+# Ignore the .vs folder (Visual Studio project settings)
+.vs/
+
+# Optional: Ignore other common build and IDE artifacts
+bin/
+obj/
+*.user
+*.suo
+*.sln.DotSettings
+*.sln.DotSettings.user
