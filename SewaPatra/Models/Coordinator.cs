@@ -7,10 +7,14 @@
         public string Address { get; set; }
         public string City { get; set; }
         public string Mobile_No { get; set; }
-        public string Alt_Mobile_no { get; set; }
+        public string Alternate_Mobile_No { get; set; }
+
         public string Email { get; set; }
-        public int Area { get; set; }
+        public int Area_Under { get; set; }
         public string location { get; set; }
         public bool Active { get; set; }
+        public DateTime CreatedAt { get; set; }
+
+        
     }
 }

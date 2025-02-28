@@ -82,8 +82,12 @@ namespace SewaPatra.Controllers
         #region Coordinator
         public IActionResult CoordinatorList()
         {
-            return View();
+
+            List<Coordinator> coordinators = _CoordinatorService.GetAllCoordinator();
+            return View(coordinators);
         }
+        #region Area
+      
         public IActionResult Coordinator()
         {
             return View();
@@ -111,21 +115,169 @@ namespace SewaPatra.Controllers
         }
         public IActionResult EditCoordinator(int id)
         {
-            //var coordinator = _CoordinatorService.GetCoordinatorById(id);
-            return View();
+            var coordinator = _CoordinatorService.GetCoordinatorById(id);
+            if (coordinator == null)
+            {
+                return NotFound();
+            }
+            return View(coordinator);
+        }
+        public IActionResult DeleteCoordinator(int id)
+        {
+            bool isDeleted = _CoordinatorService.DeleteCoordinator(id);
+            return RedirectToAction("CoordinatorList");
+        }
+        [HttpPost]
+        public IActionResult EditCoordinator(Coordinator model)
+        {
+            if (ModelState.IsValid)
+            {
+                bool isUpdated = _CoordinatorService.UpdateCoordintor(model);
+                if (isUpdated)
+                {
+                    return RedirectToAction("CoordinatorList");
+                }
+                ViewBag.Message = "Update failed!";
+            }
+            return View(model);
         }
         #endregion
-        #region Donor
-        public IActionResult Donor()
-        {
-            return View();
-        }
         #endregion
         #region DonationBox
+
+        public IActionResult DonationBoxList()
+        {
+
+            List<DonationBox> donationBoxes = _DonationBoxService.GetAllDonationBox();
+            return View(donationBoxes);
+        }
+      
+
         public IActionResult DonationBox()
         {
             return View();
         }
+        [HttpPost]
+        public IActionResult DonationBox(DonationBox donationBoxes)
+        {
+            if (ModelState.IsValid)
+            {
+                bool isInserted = _DonationBoxService.InsertDonationBox(donationBoxes);
+                if (isInserted)
+                {
+                    ViewBag.Message = "Coordinator Added Successfully";
+                }
+                else
+                {
+                    ViewBag.Message = "Failed to Add Coordinator";
+                }
+            }
+            else
+            {
+                ViewBag.Message = "Invalid data";
+            }
+            return View();
+        }
+        public IActionResult EditDonationBox(int id)
+        {
+            var coordinator = _DonationBoxService.GetDonationBoxById(id);
+            if (coordinator == null)
+            {
+                return NotFound();
+            }
+            return View(coordinator);
+        }
+        //public IActionResult DeleteDonationBox(int id)
+        //{
+        //    bool isDeleted = _DonationBoxService.DeleteDonationBox(id);
+        //    return RedirectToAction("CoordinatorList");
+        //}
+        [HttpPost]
+        public IActionResult EditDonationBox(DonationBox model)
+        {
+            if (ModelState.IsValid)
+            {
+                bool isUpdated = _DonationBoxService.UpdateDonationBox(model);
+                if (isUpdated)
+                {
+                    return RedirectToAction("CoordinatorList");
+                }
+                ViewBag.Message = "Update failed!";
+            }
+            return View(model);
+        }
+
         #endregion
+
+
+
+
+
+        #region Donor
+
+        public IActionResult DonorList()
+        {
+
+            List<Donor> donor = _DonorService.GetAllDonor();
+            return View(donor);
+        }
+
+
+        public IActionResult Donor()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Donor(Donor donor)
+        {
+            if (ModelState.IsValid)
+            {
+                bool isInserted = _DonorService.InsertDonor(donor);
+                if (isInserted)
+                {
+                    ViewBag.Message = "Coordinator Added Successfully";
+                }
+                else
+                {
+                    ViewBag.Message = "Failed to Add Coordinator";
+                }
+            }
+            else
+            {
+                ViewBag.Message = "Invalid data";
+            }
+            return View();
+        }
+        public IActionResult EditDonor(int id)
+        {
+            var donor = _DonorService.GetDonorById(id);
+            if (donor == null)
+            {
+                return NotFound();
+            }
+            return View(donor);
+        }
+        public IActionResult DeleteDonationBox(int id)
+        {
+            bool isDeleted = _DonorService.DeleteDonor(id);
+            return RedirectToAction("CoordinatorList");
+        }
+        [HttpPost]
+        public IActionResult EditDonor(Donor model)
+        {
+            if (ModelState.IsValid)
+            {
+                bool isUpdated = _DonorService.UpdateDonor(model);
+                if (isUpdated)
+                {
+                    return RedirectToAction("DonorList");
+                }
+                ViewBag.Message = "Update failed!";
+            }
+            return View(model);
+        }
+
+        #endregion
+
     }
 }

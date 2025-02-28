@@ -1,0 +1,63 @@
+﻿@model SewaPatra.Models.DonationBox
+
+@{
+    ViewBag.Title = "Edit Donation Box";
+}
+
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success" role="alert">
+        @ViewBag.Message
+    </div>
+}
+
+<div class="card-body">
+    <div class="pagetitle mt-2">
+        <h1>Edit Donation Box</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Master</a></li>
+                <li class="breadcrumb-item">Donation Box</li>
+                <li class="breadcrumb-item active">Edit Donation Box</li>
+            </ol>
+        </nav>
+    </div>
+
+    <!-- Vertical Form -->
+    <form class="row g-3" method="post" asp-action="EditDonationBox" asp-controller="Master">
+        <input type="hidden" asp-for="Id" />
+
+        <div class="col-3">
+            <label asp-for="Box_Number" class="form-label">Box Number</label>
+            <input type="text" class="form-control" asp-for="Box_Number" id="Box_Number" />
+        </div>
+@* 
+         <div class="row mb-3">
+            <label asp-for="Active" class="form-label">Active</label>
+            <div class="col-3">
+                <select asp-for="Active" class="form-select" aria-label="Select Active Status">
+                    <option value="True" @(Model.Active == "True" ? "selected" : "")>Active</option>
+                    <option value="False" @(Model.Active == "False" ? "selected" : "")>Inactive</option>
+                </select>
+            </div>
+        </div>  *@
+
+
+
+
+        <div class="col-md-4">
+            <label for="Status" class="form-label">Status</label>
+            <select class="form-select" id="Status" name="Active" aria-label="Select Status">
+                <option selected>Choose Status</option>
+                <option value="true">Active</option>
+                <option value="false">Inactive</option>
+            </select>
+        </div>
+
+
+        <div class="text-left mt-3">
+            <button type="submit" class="btn btn-primary">Save</button>
+            <a asp-action="DonationBoxList" class="btn btn-secondary">Cancel</a>
+        </div>
+    </form> <!-- Vertical Form -->
+</div>
