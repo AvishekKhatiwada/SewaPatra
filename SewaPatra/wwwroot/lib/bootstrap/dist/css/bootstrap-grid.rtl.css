@@ -116,7 +116,7 @@
   width: 16.66666667%;
 }
 
-.col-3 {
+.row col-3 {
   flex: 0 0 auto;
   width: 25%;
 }

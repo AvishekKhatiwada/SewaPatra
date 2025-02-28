@@ -1,18 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Project\\Sewapatra\\",
+  "WorkspaceRootPath": "D:\\Projects\\SewaPatra\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5D7DE400-437D-4D4C-8AF4-DF536EF923A2}|SewaPatra\\SewaPatra.csproj|d:\\project\\sewapatra\\sewapatra\\views\\master\\coordinator.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5D7DE400-437D-4D4C-8AF4-DF536EF923A2}|SewaPatra\\SewaPatra.csproj|solutionrelative:sewapatra\\views\\master\\coordinator.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{5D7DE400-437D-4D4C-8AF4-DF536EF923A2}|SewaPatra\\SewaPatra.csproj|d:\\projects\\sewapatra\\sewapatra\\views\\entry\\sewapatraissue.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5D7DE400-437D-4D4C-8AF4-DF536EF923A2}|SewaPatra\\SewaPatra.csproj|solutionrelative:sewapatra\\views\\entry\\sewapatraissue.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5D7DE400-437D-4D4C-8AF4-DF536EF923A2}|SewaPatra\\SewaPatra.csproj|d:\\project\\sewapatra\\sewapatra\\views\\master\\area.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{5D7DE400-437D-4D4C-8AF4-DF536EF923A2}|SewaPatra\\SewaPatra.csproj|d:\\projects\\sewapatra\\sewapatra\\models\\sewapatraissue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5D7DE400-437D-4D4C-8AF4-DF536EF923A2}|SewaPatra\\SewaPatra.csproj|solutionrelative:sewapatra\\models\\sewapatraissue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5D7DE400-437D-4D4C-8AF4-DF536EF923A2}|SewaPatra\\SewaPatra.csproj|d:\\projects\\sewapatra\\sewapatra\\controllers\\entrycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5D7DE400-437D-4D4C-8AF4-DF536EF923A2}|SewaPatra\\SewaPatra.csproj|solutionrelative:sewapatra\\controllers\\entrycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5D7DE400-437D-4D4C-8AF4-DF536EF923A2}|SewaPatra\\SewaPatra.csproj|d:\\projects\\sewapatra\\sewapatra\\views\\master\\area.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{5D7DE400-437D-4D4C-8AF4-DF536EF923A2}|SewaPatra\\SewaPatra.csproj|solutionrelative:sewapatra\\views\\master\\area.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5D7DE400-437D-4D4C-8AF4-DF536EF923A2}|SewaPatra\\SewaPatra.csproj|d:\\project\\sewapatra\\sewapatra\\controllers\\mastercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5D7DE400-437D-4D4C-8AF4-DF536EF923A2}|SewaPatra\\SewaPatra.csproj|solutionrelative:sewapatra\\controllers\\mastercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,45 +26,74 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 6,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Area.cshtml",
+              "DocumentMoniker": "D:\\Projects\\SewaPatra\\SewaPatra\\Views\\Master\\Area.cshtml",
+              "RelativeDocumentMoniker": "SewaPatra\\Views\\Master\\Area.cshtml",
+              "ToolTip": "D:\\Projects\\SewaPatra\\SewaPatra\\Views\\Master\\Area.cshtml",
+              "RelativeToolTip": "SewaPatra\\Views\\Master\\Area.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADAAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-28T09:31:37.557Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Area.cshtml",
-              "DocumentMoniker": "D:\\Project\\Sewapatra\\SewaPatra\\Views\\Master\\Area.cshtml",
-              "RelativeDocumentMoniker": "SewaPatra\\Views\\Master\\Area.cshtml",
-              "ToolTip": "D:\\Project\\Sewapatra\\SewaPatra\\Views\\Master\\Area.cshtml",
-              "RelativeToolTip": "SewaPatra\\Views\\Master\\Area.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-27T17:29:34.469Z",
+              "Title": "SewaPatraIssue.cs",
+              "DocumentMoniker": "D:\\Projects\\SewaPatra\\SewaPatra\\Models\\SewaPatraIssue.cs",
+              "RelativeDocumentMoniker": "SewaPatra\\Models\\SewaPatraIssue.cs",
+              "ToolTip": "D:\\Projects\\SewaPatra\\SewaPatra\\Models\\SewaPatraIssue.cs",
+              "RelativeToolTip": "SewaPatra\\Models\\SewaPatraIssue.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBQAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-28T07:27:58.894Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Coordinator.cshtml",
-              "DocumentMoniker": "D:\\Project\\Sewapatra\\SewaPatra\\Views\\Master\\Coordinator.cshtml",
-              "RelativeDocumentMoniker": "SewaPatra\\Views\\Master\\Coordinator.cshtml",
-              "ToolTip": "D:\\Project\\Sewapatra\\SewaPatra\\Views\\Master\\Coordinator.cshtml",
-              "RelativeToolTip": "SewaPatra\\Views\\Master\\Coordinator.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABEAAAAAAAAAA==",
+              "Title": "SewaPatraIssue.cshtml",
+              "DocumentMoniker": "D:\\Projects\\SewaPatra\\SewaPatra\\Views\\Entry\\SewaPatraIssue.cshtml",
+              "RelativeDocumentMoniker": "SewaPatra\\Views\\Entry\\SewaPatraIssue.cshtml",
+              "ToolTip": "D:\\Projects\\SewaPatra\\SewaPatra\\Views\\Entry\\SewaPatraIssue.cshtml",
+              "RelativeToolTip": "SewaPatra\\Views\\Entry\\SewaPatraIssue.cshtml",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAAAF8AAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-27T17:29:28.853Z",
+              "WhenOpened": "2025-02-28T07:22:47.378Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "MasterController.cs",
-              "DocumentMoniker": "D:\\Project\\Sewapatra\\SewaPatra\\Controllers\\MasterController.cs",
-              "RelativeDocumentMoniker": "SewaPatra\\Controllers\\MasterController.cs",
-              "ToolTip": "D:\\Project\\Sewapatra\\SewaPatra\\Controllers\\MasterController.cs",
-              "RelativeToolTip": "SewaPatra\\Controllers\\MasterController.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAzwFYAAAAqAAAAAAAAAA==",
+              "Title": "EntryController.cs",
+              "DocumentMoniker": "D:\\Projects\\SewaPatra\\SewaPatra\\Controllers\\EntryController.cs",
+              "RelativeDocumentMoniker": "SewaPatra\\Controllers\\EntryController.cs",
+              "ToolTip": "D:\\Projects\\SewaPatra\\SewaPatra\\Controllers\\EntryController.cs",
+              "RelativeToolTip": "SewaPatra\\Controllers\\EntryController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-27T09:47:23.312Z",
+              "WhenOpened": "2025-02-28T06:18:58.804Z",
               "EditorCaption": ""
             }
           ]

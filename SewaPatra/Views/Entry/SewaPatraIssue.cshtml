@@ -1,0 +1,106 @@
+﻿@model SewaPatra.Models.SewaPatraIssue
+
+@{
+    ViewBag.Title = "Sewa Patra Issue";
+}
+
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success" role="alert">
+        @ViewBag.Message
+    </div>
+}
+<div class="card-body">
+    <div class="pagetitle mt-2">
+        <h1>Sewa Patra Issue</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Entry</a></li>
+                <li class="breadcrumb-item">Sewa Patra Issue</li>
+                @* <li class="breadcrumb-item active">Add Area</li> *@
+            </ol>
+        </nav>
+    </div>
+    <!-- Vertical Form -->
+    <form method="post" asp-action="SewaPatraIssue" asp-controller="Entry">
+        <div class="row mb-2">
+            <label asp-for="TranId" style="font-size: 13px;" class="col-sm-2 col-form-label">Transaction Id</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" style="font-size: 10px;" asp-for="TranId" id="TranId">
+            </div>
+            <label asp-for="Entered_Date" style="font-size: 13px;" class="col-sm-2 col-form-label">Date</label>
+            <div class="col-sm-4">
+                <input type="date" class="form-control" style="font-size: 10px;" asp-for="Entered_Date" id="enteredDate">
+            </div>
+        </div>
+        @* <div class="row mb-2">
+            
+        </div> *@
+        <div class="row mb-2">
+            <label asp-for="Donor" style="font-size: 13px;" class="col-sm-2 col-form-label">Donor</label>
+            <div class="col-sm-4">
+                <select asp-for="Donor" style="font-size: 10px;" class="form-select" aria-label="Select Donor">
+                    <option selected>Select Donor</option>
+                    <option value="1">Donor1</option>
+                    <option value="2">Donor2</option>
+                </select>
+            </div>
+            <label asp-for="Coordinator" style="font-size: 13px;" class="col-sm-2 col-form-label">Coordinator</label>
+            <div class="col-sm-4">
+                <select asp-for="Coordinator" style="font-size: 10px;" class="form-select" aria-label="Select Coordinator">
+                    <option selected>Select Coordinator</option>
+                    <option value="1">Test1</option>
+                    <option value="2">Test2</option>
+                </select>
+            </div>
+        </div>
+        @* <div class="row mb-2">
+            
+        </div> *@
+        <div class="row mb-2">
+            <label asp-for="DonationBox" style="font-size: 13px;" class="col-sm-2 col-form-label">Donation Box</label>
+            <div class="col-sm-4">
+                <select asp-for="DonationBox" style="font-size: 10px;" class="form-select" aria-label="Select DonationBox">
+                    <option selected>Select DonationBox</option>
+                    <option value="1">BOX_1_3</option>
+                    <option value="2">BOX_1_2</option>
+                </select>
+            </div>
+            <label asp-for="Issue_Date" style="font-size: 13px;" class="col-sm-2 col-form-label">Issue Date</label>
+            <div class="col-sm-4">
+                <input type="date" class="form-control" style="font-size: 10px;" asp-for="Issue_Date" id="issueDate">
+            </div>
+        </div>
+        @* <div class="row mb-2">
+           
+        </div> *@
+        <div class="row mb-2">
+            <label asp-for="Recurring" style="font-size: 13px;" class="col-sm-2 col-form-label">Recurring</label>
+            <div class="col-sm-4">
+                <select asp-for="Recurring" style="font-size: 10px;" class="form-select" aria-label="Select Recurring Date">
+                    <option selected>Select Recurring Type</option>
+                    <option value="yearly">Yearly</option>
+                    <option value="halfyearly">Half Yearly</option>
+                    <option value="quaterly">Quaterly</option>
+                </select>
+            </div>
+            <label asp-for="Due_Date" style="font-size: 13px;" class="col-sm-2 col-form-label">Due Date</label>
+            <div class="col-sm-4">
+                <input type="date" class="form-control" style="font-size: 10px;" asp-for="Due_Date" id="dueDate">
+            </div>
+        </div>
+        @* <div class="row mb-2">
+            
+        </div> *@
+        <div class="row mb-2">
+            <label asp-for="Remarks" style="font-size: 13px;" class="col-sm-2 col-form-label">Remarks</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" style="font-size: 10px;" asp-for="Remarks" id="remarks">
+            </div>
+        </div>
+        <div class="text-Left">
+            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="reset" class="btn btn-secondary">Reset</button>
+        </div>
+    </form>
+</div>

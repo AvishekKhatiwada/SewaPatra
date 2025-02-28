@@ -23,17 +23,17 @@
     <!-- Vertical Form -->
     <form class="row g-3" method="post" asp-action="EditArea" asp-controller="Master">
         <input type="hidden" asp-for="Id" />
-        <div class="col-3">
+        <div class="row col-3">
             <label asp-for="Area_name" class="form-label">Area Name</label>
             <input type="text" class="form-control" asp-for="Area_name" id="areaName">
         </div>
-        <div class="col-3">
+        <div class="row col-3">
             <label asp-for="Area_type" class="form-label">Area Type</label>
             <input type="text" class="form-control" asp-for="Area_type" id="areaType">
         </div>
-        <div class="row mb-3">
+        <div class="row">
             <label asp-for="Under" class="form-label">Under</label>
-            <div class="col-3">
+            <div class="row col-3">
                 <select asp-for="Under" class="form-select" aria-label="Select Coordinator">
                     <option selected>select Coordinator</option>
                     <option value="1">Ram</option>
