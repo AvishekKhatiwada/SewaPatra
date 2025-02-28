@@ -10,10 +10,26 @@ namespace SewaPatra.BusinessLayer
         {
             _donationBoxRepository = repository;
         }
-
         public bool InsertDonationBox(DonationBox donationBox)
         {
             return _donationBoxRepository.InsertDonationBox(donationBox);
         }
+        public List<DonationBox> GetAllDonationBox()
+        {
+            return _donationBoxRepository.GetAllDonationBox();
+        }
+        public DonationBox GetDonationBoxById(int id)
+        {
+            return _donationBoxRepository.GetDonationBoxById(id);
+        }
+        public bool UpdateDonationBox(DonationBox donationBox)
+        {
+            return _donationBoxRepository.UpdateDonationBox(donationBox);
+        }
+        //public bool DeleteCoordinator(int id)
+        //{
+        //    return _donationBoxRepository.DeleteDonationBox(id);
+        //}
+
     }
 }

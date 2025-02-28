@@ -1,0 +1,57 @@
+﻿@model List<SewaPatra.Models.DonationBox>
+
+@{
+    ViewData["Title"] = "Donation Box List";
+}
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="pagetitle mt-2">
+                        <h1>Donation Box List</h1>
+                        <nav>
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">Master</li>
+                                <li class="breadcrumb-item active">Donation Box List</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <div style="display:flex;justify-content:flex-end;">
+                        <a asp-controller="Master" asp-action="DonationBox" style="margin-right: 13.6%;font-size: 12px; padding: 2px 8px;" class="btn btn-warning btn-sm">Add New</a>
+                    </div>
+                    <table class="table datatable">
+                        <thead>
+                            <tr>
+                                <th>SN</th>
+                                <th>Box Number</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model != null && Model.Count > 0)
+                            {
+                                int sno = 1;
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@sno</td>
+                                        <td>@item.Box_Number</td>
+                                        <td>@item.Active</td>
+                                        <td>
+                                            <a asp-controller="Master" asp-action="EditDonationBox" asp-route-id="@item.Id" style="background-color: #F1592A;color: #000000; font-size: 9px; padding: 2px 8px;" class="btn btn-sm">Edit</a>
+                                            <a asp-controller="Master" asp-action="DeleteDonationBox" asp-route-id="@item.Id" style="background-color: #F1592A;color: #000000; font-size: 9px; padding: 2px 8px;" class="btn btn-sm">Delete</a>
+                                        </td>
+                                    </tr>
+                                    sno++;
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
