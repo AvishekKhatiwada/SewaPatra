@@ -34,7 +34,7 @@ namespace SewaPatra.DataAccess
 
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
-                string query = "SELECT *from DonationBox";
+                string query = "SELECT * from DonationBox";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 conn.Open();
 

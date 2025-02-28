@@ -15,6 +15,8 @@ builder.Services.AddSingleton<DonationBoxRepository>();
 builder.Services.AddSingleton<DonationBoxService>();
 builder.Services.AddSingleton<DonorRepository>();
 builder.Services.AddSingleton<DonorService>();
+builder.Services.AddSingleton<SewaPatraIssueRepository>();
+builder.Services.AddSingleton<SewaPatraIssueService>();
 
 var app = builder.Build();
 

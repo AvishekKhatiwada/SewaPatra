@@ -7,7 +7,7 @@ namespace SewaPatra.Models
         [Key]
         public string TranId { get; set; }
         [Required]
-        public string Entered_Date { get; set; }
+        public DateTime Entered_Date { get; set; }
         [Required]
         public int Donor { get; set; }
         [Required]

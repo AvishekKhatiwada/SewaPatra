@@ -33,8 +33,19 @@ CREATE TABLE Donor_master (
     FOREIGN KEY (Area) REFERENCES Area_Master(Id),       -- Assuming Id is the PK in Area_Master
     FOREIGN KEY (Coordinator) REFERENCES Coordinator_master(ID) -- Assuming ID is the PK in Coordinator_master
 );
-
+CREATE TABLE DonationBox(
     Id INT IDENTITY(1,1) PRIMARY KEY, -- Auto-incrementing ID (MySQL example)
     Box_Number VARCHAR(100),
     Active Bit  -- Use Bit for Active status
+);
+CREATE TABLE SewaPatraIssue (
+    TranId VARCHAR(100) PRIMARY KEY,
+    Entered_Date DATETIME NOT NULL,
+    Donor INT NOT NULL,
+    Coordinator INT NOT NULL,
+    DonationBox INT NOT NULL,
+    Issue_Date DATETIME NOT NULL,
+    Recurring VARCHAR(255),
+    Due_Date DATETIME,
+    Remarks VARCHAR(MAX)
 );
