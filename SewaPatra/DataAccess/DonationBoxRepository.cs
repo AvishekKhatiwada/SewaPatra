@@ -89,9 +89,6 @@ namespace SewaPatra.DataAccess
                 cmd.Parameters.AddWithValue("@Id", donationBox.Id);
                 cmd.Parameters.AddWithValue("@Box_Number", donationBox.Box_Number);
                 cmd.Parameters.AddWithValue("@Active", donationBox.Active);
-                
-
-
                 conn.Open();
                 int rowsAffected = cmd.ExecuteNonQuery();
                 conn.Close();

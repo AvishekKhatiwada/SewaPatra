@@ -15,5 +15,21 @@ namespace SewaPatra.BusinessLayer
         {
             return _sewaPatraIssueRepository.InsertSewaPatraIssue(sewaPatraIssue);
         }
+        public List<SewaPatraIssue> GetAllSewaPatraIssue()
+        {
+            return _sewaPatraIssueRepository.GetAllSewaPatraIssue();
+        }
+        public SewaPatraIssue GetSewaPatraIssueById(string id)
+        {
+            return _sewaPatraIssueRepository.GetSewaPatraIssueById(id);
+        }
+        public bool UpdateSewaPatraIssue(SewaPatraIssue sewaPatraIssue)
+        {
+            return _sewaPatraIssueRepository.UpdateSewaPatraIssue(sewaPatraIssue);
+        }
+        public bool DeleteSewaPatraIssue(string id)
+        {
+            return _sewaPatraIssueRepository.DeleteSewaPatraIssue(id);
+        }
     }
 }

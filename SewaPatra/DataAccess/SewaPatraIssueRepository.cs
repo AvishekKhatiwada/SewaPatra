@@ -32,5 +32,93 @@ namespace SewaPatra.DataAccess
                 return rowsAffected > 0;
             }
         }
+        public List<SewaPatraIssue> GetAllSewaPatraIssue()
+        {
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                string query = @"SELECT * FROM SewaPatraIssue";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                List<SewaPatraIssue> sewaPatraIssue = new List<SewaPatraIssue>();
+                if (reader.Read())
+                {
+                    sewaPatraIssue.Add(new SewaPatraIssue
+                    {
+                        TranId = reader["TranId"].ToString(),
+                        Entered_Date = Convert.ToDateTime(reader["Entered_Date"]),
+                        Donor = Convert.ToInt32(reader["Donor"]),
+                        Coordinator = Convert.ToInt32(reader["Coordinator"]),
+                        DonationBox = Convert.ToInt32(reader["DonationBox"]),
+                        Issue_Date = Convert.ToDateTime(reader["Issue_Date"]),
+                        Recurring = reader["Recurring"].ToString(),
+                        Due_Date = Convert.ToDateTime(reader["Due_Date"]),
+                        Remarks = reader["Remarks"].ToString()
+                    });
+                }
+                conn.Close();
+                return sewaPatraIssue;
+            }
+        }
+        public SewaPatraIssue GetSewaPatraIssueById(string id)
+        {
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                string query = @"SELECT * FROM SewaPatraIssue WHERE TranId = @TranId";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@TranId", id);
+                conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                SewaPatraIssue sewaPatraIssue = new SewaPatraIssue();
+                if (reader.Read())
+                {
+                    sewaPatraIssue.TranId = reader["TranId"].ToString();
+                    sewaPatraIssue.Entered_Date = Convert.ToDateTime(reader["Entered_Date"]);
+                    sewaPatraIssue.Donor = Convert.ToInt32(reader["Donor"]);
+                    sewaPatraIssue.Coordinator = Convert.ToInt32(reader["Coordinator"]);
+                    sewaPatraIssue.DonationBox = Convert.ToInt32(reader["DonationBox"]);
+                    sewaPatraIssue.Issue_Date = Convert.ToDateTime(reader["Issue_Date"]);
+                    sewaPatraIssue.Recurring = reader["Recurring"].ToString();
+                    sewaPatraIssue.Due_Date = Convert.ToDateTime(reader["Due_Date"]);
+                    sewaPatraIssue.Remarks = reader["Remarks"].ToString();
+                }
+                conn.Close();
+                return sewaPatraIssue;
+            }
+        }
+        public bool UpdateSewaPatraIssue(SewaPatraIssue sewaPatraIssue)
+        {
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                string query = @"UPDATE SewaPatraIssue SET Entered_Date = @EnteredDate, Donor = @Donor, Coordinator = @Coordinator, DonationBox = @DonationBox, Issue_Date = @IssueDate, Recurring = @recurring, Due_Date = @DueDate, Remarks = @remarks WHERE TranId = @TranId";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@TranId", sewaPatraIssue.TranId);
+                cmd.Parameters.AddWithValue("@EnteredDate", sewaPatraIssue.Entered_Date);
+                cmd.Parameters.AddWithValue("@Donor", sewaPatraIssue.Donor);
+                cmd.Parameters.AddWithValue("@Coordinator", sewaPatraIssue.Coordinator);
+                cmd.Parameters.AddWithValue("@DonationBox", sewaPatraIssue.DonationBox);
+                cmd.Parameters.AddWithValue("@IssueDate", sewaPatraIssue.Issue_Date);
+                cmd.Parameters.AddWithValue("@recurring", sewaPatraIssue.Recurring);
+                cmd.Parameters.AddWithValue("@DueDate", sewaPatraIssue.Due_Date);
+                cmd.Parameters.AddWithValue("@remarks", sewaPatraIssue.Remarks);
+                conn.Open();
+                int rowsAffected = cmd.ExecuteNonQuery();
+                conn.Close();
+                return rowsAffected > 0;
+            }
+        }
+        public bool DeleteSewaPatraIssue(string id)
+        {
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                string query = @"DELETE FROM SewaPatraIssue WHERE TranId = @TranId";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@TranId", id);
+                conn.Open();
+                int rowsAffected = cmd.ExecuteNonQuery();
+                conn.Close();
+                return rowsAffected > 0;
+            }
+        }
     }
 }

@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Project\\Sewapatra\\SewaPatra\\SewaPatra.csproj": {}
+    "D:\\Project\\SewaPatra\\SewaPatra\\SewaPatra.csproj": {}
   },
   "projects": {
-    "D:\\Project\\Sewapatra\\SewaPatra\\SewaPatra.csproj": {
+    "D:\\Project\\SewaPatra\\SewaPatra\\SewaPatra.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Project\\Sewapatra\\SewaPatra\\SewaPatra.csproj",
+        "projectUniqueName": "D:\\Project\\SewaPatra\\SewaPatra\\SewaPatra.csproj",
         "projectName": "SewaPatra",
-        "projectPath": "D:\\Project\\Sewapatra\\SewaPatra\\SewaPatra.csproj",
+        "projectPath": "D:\\Project\\SewaPatra\\SewaPatra\\SewaPatra.csproj",
         "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
         "outputPath": "D:\\Project\\Sewapatra\\SewaPatra\\obj\\",
         "projectStyle": "PackageReference",
