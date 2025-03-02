@@ -1,7 +1,7 @@
-﻿@model List<SewaPatra.Models.Coordinator>
+﻿@model List<SewaPatra.Models.Donor>
 
 @{
-    ViewData["Title"] = "Coordinator List";
+    ViewData["Title"] = "Donor List";
 }
 
 <section class="section">
@@ -10,18 +10,19 @@
             <div class="card">
                 <div class="card-body">
                     <div class="pagetitle mt-2">
-                        <h1>Area List</h1>
+                        <h1>Donor List</h1>
                         <nav>
                             <ol class="breadcrumb">
                                 @* <li class="breadcrumb-item"><a href="index.html">Home</a></li> *@
                                 <li class="breadcrumb-item">Master</li>
-                                <li class="breadcrumb-item active">Coordinator List</li>
+                                <li class="breadcrumb-item active">Donor List</li>
                             </ol>
                         </nav>
                     </div>
                     <div style="display:flex;justify-content:flex-end;">
-                        <a asp-controller="Master" asp-action="Coordinator" style="margin-right: 13.6%;font-size: 12px; padding: 2px 8px;" class="btn btn-warning btn-sm">Add New</a>
+                        <a asp-controller="Master" asp-action="Donor" style="margin-right: 13.6%;font-size: 12px; padding: 2px 8px;" class="btn btn-warning btn-sm">Add New</a>
                     </div>
+                    <!-- Table with stripped rows -->
                     <table class="table datatable">
                         <thead>
                             <tr>
@@ -33,8 +34,8 @@
                                 <th>Alt Mobile No</th>
                                 <th>Email</th>
                                 <th>Area</th>
+                                <th>Coordinator</th>
                                 <th>Location</th>
-                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -50,14 +51,14 @@
                                         <td>@item.Address</td>
                                         <td>@item.City</td>
                                         <td>@item.Mobile_No</td>
-                                        <td>@item.Alternate_Mobile_No</td>
+                                        <td>@item.Mobile_no2</td>
                                         <td>@item.Email</td>
-                                        <td>@item.Area_Under</td>
-                                        <td>@item.location</td>
-                                        <td>@item.Active</td>
+                                        <td>@item.Area</td>
+                                        <td>@item.Coordinator</td>
+                                        <td>@item.Location</td>
                                         <td>
-                                            <a asp-controller="Master" asp-action="EditCoordinator" asp-route-id="@item.Id" style="background-color: #F1592A;color: #000000; font-size: 9px; padding: 2px 8px;" class="btn btn-sm">Edit</a>
-                                            <a asp-controller="Master" asp-action="DeleteCoordinator" asp-route-id="@item.Id" style="background-color: #F1592A;color: #000000; font-size: 9px; padding: 2px 8px;" class="btn btn-sm">Delete</a>
+                                            <a asp-controller="Master" asp-action="EditDonor" asp-route-id="@item.Id" style="background-color: #F1592A;color: #000000; font-size: 9px; padding: 2px 8px;" class="btn btn-sm">Edit</a>
+                                            <a asp-controller="Master" asp-action="DeleteDonor" asp-route-id="@item.Id" style="background-color: #F1592A;color: #000000; font-size: 9px; padding: 2px 8px;" class="btn btn-sm">Delete</a>
                                         </td>
                                     </tr>
                                     sno++;
@@ -65,8 +66,11 @@
                             }
                         </tbody>
                     </table>
+                    <!-- End Table with stripped rows -->
+
                 </div>
             </div>
+
         </div>
     </div>
 </section>

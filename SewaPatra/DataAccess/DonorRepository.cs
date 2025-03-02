@@ -14,7 +14,7 @@ namespace SewaPatra.DataAccess
         {
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
-                string query = "INSERT INTO DonationBox (Mobile_No,Name,Address,City,Mobile_no2,Email,Area,Coordinator,Location,Active) VALUES (@Mobile_No, @Name,@Address,@City,@Mobile_no2,@Email,@Area,@Coordinator,@Location,@Active)";
+                string query = "INSERT INTO Donor_Master (Mobile_No,Name,Address,City,Mobile_no2,Email,Area,Coordinator,Location,Active) VALUES (@Mobile_No, @Name,@Address,@City,@Mobile_no2,@Email,@Area,@Coordinator,@Location,@Active)";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@Mobile_No", donor.Mobile_No);
                 cmd.Parameters.AddWithValue("@Name", donor.Name);

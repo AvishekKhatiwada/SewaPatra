@@ -1,71 +1,91 @@
-﻿<div class="card-body">
-    <h5 class="card-title">Donor Master</h5>
+﻿@model SewaPatra.Models.Donor
+
+@{
+    ViewBag.Title = "Add Donor";
+}
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success" role="alert">
+        @ViewBag.Message
+    </div>
+}
+<div class="card-body">
+    <div class="pagetitle mt-2">
+        <h1>Add Donor</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Master</a></li>
+                <li class="breadcrumb-item">Donor</li>
+                <li class="breadcrumb-item active">Add Donor</li>
+            </ol>
+        </nav>
+    </div>
 
     <form class="row g-3" method="post" asp-action="Donor" asp-controller="Master">
 
         <div class="col-md-12">
-            <label for="Name" class="form-label">Name</label>
-            <input type="text" class="form-control" id="Name" name="Name" required>
+            <label asp-for="Name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="Name" asp-for="Name" required>
         </div>
 
         <div class="col-md-6">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" name="Email" required>
+            <label asp-for="Email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" asp-for="Email" required>
         </div>
 
         <div class="col-md-6">
-            <label for="mobileNo" class="form-label">Mobile No</label>
-            <input type="tel" class="form-control" id="mobileNo" name="MobileNo" required>
-        </div>
-
-        <div class="col-12">
-            <label for="address" class="form-label">Address</label>
-            <input type="text" class="form-control" id="address" name="Address" placeholder="University Road, Kalimati" required>
-        </div>
-
-        <div class="col-12">
-            <label for="inputAddress2" class="form-label">Address 2</label>
-            <input type="text" class="form-control" id="inputAddress2" name="Address2" placeholder="Apartment, studio, or floor">
+            <label asp-for="Mobile_No" class="form-label">Mobile No</label>
+            <input type="tel" class="form-control" id="mobileNo" asp-for="Mobile_No" required>
         </div>
 
         <div class="col-md-6">
-            <label for="MobileNo2" class="form-label">Mobile No 2</label>
-            <input type="tel" class="form-control" id="MobileNo2" name="MobileNo2">
+            <label asp-for="Address" class="form-label">Address</label>
+            <input type="text" class="form-control" id="address" asp-for="Address" placeholder="University Road, Kalimati" required>
+        </div>
+
+        <!-- Location -->
+        <div class="col-md-6">
+            <label asp-for="Location" class="form-label">Location</label>
+            <input type="text" class="form-control" id="Location" asp-for="Location">
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="Mobile_no2" class="form-label">Mobile No 2</label>
+            <input type="tel" class="form-control" id="MobileNo2" asp-for="Mobile_no2">
         </div>
 
         <div class="col-md-4">
-            <label for="city" class="form-label">City</label>
-            <select id="city" class="form-select" name="City" required>
+            <label asp-for="City" class="form-label">City</label>
+            <select id="city" class="form-select" asp-for="City" required>
                 <option selected>Choose...</option>
-                <option>...</option>
+                <option value="ktm">KTM</option>
+                <!-- Dynamically populated options -->
+            </select>
+        </div>
+        <div class="col-md-4">
+            <label asp-for="Area" class="form-label">Area</label>
+            <select id="area" class="form-select" asp-for="Area" required>
+                <option selected>Choose...</option>
+                <option value="1">kalimati</option>
                 <!-- Dynamically populated options -->
             </select>
         </div>
 
         <div class="col-md-4">
-            <label for="area" class="form-label">Area</label>
-            <select id="area" class="form-select" name="Area" required>
+            <label asp-for="Coordinator" class="form-label">Coordinator</label>
+            <select id="coordinator" class="form-select" asp-for="Coordinator" required>
                 <option selected>Choose...</option>
-                <option>...</option>
+                <option value="1">Coordinator1</option>
                 <!-- Dynamically populated options -->
             </select>
         </div>
 
         <div class="col-md-4">
-            <label for="coordinator" class="form-label">Coordinator</label>
-            <select id="coordinator" class="form-select" name="Coordinator" required>
-                <option selected>Choose...</option>
-                <option>...</option>
-                <!-- Dynamically populated options -->
-            </select>
-        </div>
-
-        <div class="col-md-4">
-            <label for="Status" class="form-label">Status</label>
-            <select class="form-select" id="Status" name="Status" required>
+            <label asp-for="Active" class="form-label">Status</label>
+            <select class="form-select" id="Status" asp-for="Active" required>
                 <option selected>select Status</option>
-                <option value="1">Active</option>
-                <option value="2">Inactive</option>
+                <option value="true">Active</option>
+                <option value="false">Inactive</option>
             </select>
         </div>
 

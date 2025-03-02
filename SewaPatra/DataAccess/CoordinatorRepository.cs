@@ -17,7 +17,7 @@ namespace SewaPatra.DataAccess
         {
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
-                string query = "INSERT INTO Coordinator_master (Name, Mobile_No, Alternate_Mobile_No,Address,City,Email,CreatedAt) VALUES (@Name, @Mobile_No, @Alternate_Mobile_No,@Address,@City,@Email,@CreatedAt)";
+                string query = "INSERT INTO Coordinator_master (Name, Mobile_No, Alternate_Mobile_No,Address,City,Email,Area_Under,CreatedAt) VALUES (@Name, @Mobile_No, @Alternate_Mobile_No,@Address,@City,@Email,@CreatedAt)";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@Name", coordinator.Name);
                 cmd.Parameters.AddWithValue("@Mobile_No", coordinator.Mobile_No);
@@ -25,6 +25,7 @@ namespace SewaPatra.DataAccess
                 cmd.Parameters.AddWithValue("@Address", coordinator.Address);
                 cmd.Parameters.AddWithValue("@City", coordinator.City);
                 cmd.Parameters.AddWithValue("@Email", coordinator.Email);
+                cmd.Parameters.AddWithValue("@Area_Under", coordinator.Area_Under);
                 cmd.Parameters.AddWithValue("@CreatedAt", coordinator.CreatedAt);
                
                 conn.Open();

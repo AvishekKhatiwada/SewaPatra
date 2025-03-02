@@ -1,4 +1,15 @@
-﻿<div class="card-body">
+﻿@model SewaPatra.Models.Coordinator;
+
+@{
+    ViewBag.Title = "Add Coordinator";
+}
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success" role="alert">
+        @ViewBag.Message
+    </div>
+}
+<div class="card-body">
     <div class="pagetitle mt-2">
         <h1>Add Coordinator</h1>
         <nav>
@@ -48,8 +59,8 @@
 
         <!-- Area Under -->
         <div class="col-md-4">
-            <label for="Area_Under" class="form-label">Area</label>
-            <select id="Area_Under" name="Area_Under" class="form-select">
+            <label asp-for="Area_Under" class="form-label">Area</label>
+            <select id="Area_Under" asp-for="Area_Under" class="form-select">
                 <option selected>Choose...</option>
                 <option value="1">Area 1</option>
                 <option value="2">Area 2</option>

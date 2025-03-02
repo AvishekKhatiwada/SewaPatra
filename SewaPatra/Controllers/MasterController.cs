@@ -221,8 +221,6 @@ namespace SewaPatra.Controllers
             List<Donor> donor = _DonorService.GetAllDonor();
             return View(donor);
         }
-
-
         public IActionResult Donor()
         {
             return View();
@@ -235,11 +233,11 @@ namespace SewaPatra.Controllers
                 bool isInserted = _DonorService.InsertDonor(donor);
                 if (isInserted)
                 {
-                    ViewBag.Message = "Coordinator Added Successfully";
+                    ViewBag.Message = "Donor Added Successfully";
                 }
                 else
                 {
-                    ViewBag.Message = "Failed to Add Coordinator";
+                    ViewBag.Message = "Failed to Add Donor";
                 }
             }
             else
@@ -257,10 +255,10 @@ namespace SewaPatra.Controllers
             }
             return View(donor);
         }
-        public IActionResult DeleteDonationBox(int id)
+        public IActionResult DeleteDonor(int id)
         {
             bool isDeleted = _DonorService.DeleteDonor(id);
-            return RedirectToAction("CoordinatorList");
+            return RedirectToAction("DonorList");
         }
         [HttpPost]
         public IActionResult EditDonor(Donor model)

@@ -12,7 +12,7 @@
         public int Area { get; set; }
         public int Coordinator { get; set; }
         public string Location { get; set; }
-        public bool Active { get; set; }
+        public string? Active { get; set; }
 
     }
 }

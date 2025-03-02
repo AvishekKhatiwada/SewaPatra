@@ -12,7 +12,7 @@
 }
 <div class="card-body">
     <div class="pagetitle mt-2">
-        <h1>Sewa Patra Issue</h1>
+        <h1>Payment Voucher</h1>
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.html">Entry</a></li>
@@ -49,13 +49,15 @@
             </div>
         </div>
 
-        <label asp-for="Coordinator" style="font-size: 13px;" class="col-sm-2 col-form-label">Coordinator</label>
-        <div class="col-sm-4">
-            <select asp-for="Coordinator" style="font-size: 10px;" class="form-select" aria-label="Select Coordinator">
-                <option selected>Select Coordinator</option>
-                <option value="1">Test1</option>
-                <option value="2">Test2</option>
-            </select>
+        <div class="row mb-2">
+            <label asp-for="Coordinator" style="font-size: 13px;" class="col-sm-2 col-form-label">Coordinator</label>
+            <div class="col-sm-4">
+                <select asp-for="Coordinator" style="font-size: 10px;" class="form-select" aria-label="Select Coordinator">
+                    <option selected>Select Coordinator</option>
+                    <option value="1">Test1</option>
+                    <option value="2">Test2</option>
+                </select>
+            </div>
         </div>
 
         <div class="row mb-2">

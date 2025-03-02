@@ -28,7 +28,7 @@ CREATE TABLE Donor_master (
     Email VARCHAR(255),            -- Increased length for emails
     Area INT,                       -- Foreign key
     Coordinator INT,                -- Foreign key
-    Location VARCHAR(5),            -- Consider a more descriptive name
+    Location VARCHAR(105),            -- Consider a more descriptive name
     Active Bit,                 -- Using Bit
     FOREIGN KEY (Area) REFERENCES Area_Master(Id),       -- Assuming Id is the PK in Area_Master
     FOREIGN KEY (Coordinator) REFERENCES Coordinator_master(ID) -- Assuming ID is the PK in Coordinator_master
@@ -58,3 +58,7 @@ CREATE TABLE PaymentVoucher (
     Amount VARCHAR(255),
     Remarks VARCHAR(255)
 );
+--Donor Listing
+Select DM.*,CM.Name AS [Coordinator Name],AM.Area_name from Donor_master DM 
+Inner Join Area_Master AM On Am.ID=Dm.Area
+Inner Join Coordinator_master CM ON CM.ID=DM.Coordinator
