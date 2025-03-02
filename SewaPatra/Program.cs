@@ -17,6 +17,9 @@ builder.Services.AddSingleton<DonorRepository>();
 builder.Services.AddSingleton<DonorService>();
 builder.Services.AddSingleton<SewaPatraIssueRepository>();
 builder.Services.AddSingleton<SewaPatraIssueService>();
+builder.Services.AddSingleton<PaymentVoucherRepository>();
+builder.Services.AddSingleton<PaymentVoucherService>();
+
 
 var app = builder.Build();
 

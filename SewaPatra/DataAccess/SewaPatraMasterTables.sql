@@ -49,3 +49,12 @@ CREATE TABLE SewaPatraIssue (
     Due_Date DATETIME,
     Remarks VARCHAR(MAX)
 );
+
+CREATE TABLE PaymentVoucher (
+    P_TranId VARCHAR(255) PRIMARY KEY,
+    Date VARCHAR(255),
+    Ledger_Name VARCHAR(255),
+    Coordinaotr VARCHAR(255),
+    Amount VARCHAR(255),
+    Remarks VARCHAR(255)
+);
