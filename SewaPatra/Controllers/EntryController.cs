@@ -7,9 +7,12 @@ namespace SewaPatra.Controllers
     public class EntryController : Controller
     {
         private readonly SewaPatraIssueService _sewaPatraIssueService;
-        public EntryController(SewaPatraIssueService sewaPatraIssueService)
+        private readonly PaymentVoucherService _paymentVoucherService;
+   
+        public EntryController(SewaPatraIssueService sewaPatraIssueService, PaymentVoucherService paymentVoucherService)
         {
             _sewaPatraIssueService = sewaPatraIssueService;
+            _paymentVoucherService = paymentVoucherService;
         }
         public IActionResult Index()
         {
@@ -86,6 +89,74 @@ namespace SewaPatra.Controllers
         public IActionResult ReceiptVoucher()
         {
             return View();
+        }
+        #endregion
+        #region Payment Voucher
+        public IActionResult PaymentVoucher()
+        {
+            return View();
+        }
+        public IActionResult PaymentVoucherList()
+        {
+            List<PaymentVoucher> paymentVoucher = _paymentVoucherService.GetAllPaymentVoucher();
+            return View(paymentVoucher);
+        }
+        [HttpPost]
+
+        public IActionResult PaymentVoucher(PaymentVoucher paymentVoucher)
+        {
+            if (ModelState.IsValid)
+            {
+                bool isInserted = _paymentVoucherService.InsertPaymentVoucher(paymentVoucher);
+                if (isInserted)
+                {
+                    ViewBag.Message = "Payment Voucher Added Successfully";
+                }
+                else
+                {
+                    ViewBag.Message = "Failed to Add Payment Voucher Issue";
+                }
+            }
+            else
+            {
+                ViewBag.Message = "Invalid data";
+            }
+            return View();
+        }
+        public IActionResult EditPaymentVoucher(string id)
+        {
+            var paymentVoucher = _paymentVoucherService.GetAllPaymentVoucherById(id);
+            if (paymentVoucher == null)
+            {
+                return NotFound();
+            }
+            return View(paymentVoucher);
+        }
+        [HttpPost]
+        public IActionResult EditPaymentVoucher(PaymentVoucher paymentVoucher)
+        {
+            if (ModelState.IsValid)
+            {
+                bool isUpdated = _paymentVoucherService.UpdatePaymentVoucher(paymentVoucher);
+                if (isUpdated)
+                {
+                    ViewBag.Message = "Payment Voucher Updated Successfully";
+                }
+                else
+                {
+                    ViewBag.Message = "Failed to Update Payment Voucher";
+                }
+            }
+            else
+            {
+                ViewBag.Message = "Invalid data";
+            }
+            return View();
+        }
+        public IActionResult DeletePaymentVoucher(string id)
+        {
+            bool isDeleted = _paymentVoucherService.DeletePaymentVoucher(id);
+            return RedirectToAction("PaymentVoucherList");
         }
         #endregion
     }
