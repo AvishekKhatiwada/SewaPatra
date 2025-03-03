@@ -58,6 +58,18 @@ CREATE TABLE PaymentVoucher (
     Amount VARCHAR(255),
     Remarks VARCHAR(255)
 );
+CREATE TABLE ReceiptVoucher (
+    R_TranId VARCHAR(255) NOT NULL PRIMARY KEY,
+    [Date] VARCHAR(255),
+    Sewapatra_No Int NOT NULL,
+    Donor Int NOT NULL,
+    Coordinator Int NOT NULL,
+    Amount VARCHAR(255),
+    Next_DueDate VARCHAR(255),
+    Remarks VARCHAR(255)
+);
+
+
 --Donor Listing
 Select DM.*,CM.Name AS [Coordinator Name],AM.Area_name from Donor_master DM 
 Inner Join Area_Master AM On Am.ID=Dm.Area

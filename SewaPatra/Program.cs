@@ -19,6 +19,8 @@ builder.Services.AddSingleton<SewaPatraIssueRepository>();
 builder.Services.AddSingleton<SewaPatraIssueService>();
 builder.Services.AddSingleton<PaymentVoucherRepository>();
 builder.Services.AddSingleton<PaymentVoucherService>();
+builder.Services.AddSingleton<ReceiptVoucherRepository>();
+builder.Services.AddSingleton<ReceiptVoucherService>();
 
 
 var app = builder.Build();
