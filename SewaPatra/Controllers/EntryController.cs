@@ -8,11 +8,13 @@ namespace SewaPatra.Controllers
     {
         private readonly SewaPatraIssueService _sewaPatraIssueService;
         private readonly PaymentVoucherService _paymentVoucherService;
-   
-        public EntryController(SewaPatraIssueService sewaPatraIssueService, PaymentVoucherService paymentVoucherService)
+        private readonly ReceiptVoucherService _receiptVoucherService;
+
+        public EntryController(SewaPatraIssueService sewaPatraIssueService, PaymentVoucherService paymentVoucherService, ReceiptVoucherService receiptVoucherService)
         {
             _sewaPatraIssueService = sewaPatraIssueService;
             _paymentVoucherService = paymentVoucherService;
+            _receiptVoucherService = receiptVoucherService;
         }
         public IActionResult Index()
         {
@@ -89,6 +91,11 @@ namespace SewaPatra.Controllers
         public IActionResult ReceiptVoucher()
         {
             return View();
+        }
+        public IActionResult ReceiptVoucherList()
+        {
+            List<ReceiptVoucher> receiptVoucher = _receiptVoucherService.GetAllReceiptVoucher();
+            return View(receiptVoucher);
         }
         #endregion
         #region Payment Voucher

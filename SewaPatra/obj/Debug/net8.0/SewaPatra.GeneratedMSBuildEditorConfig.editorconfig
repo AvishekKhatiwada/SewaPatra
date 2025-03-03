@@ -48,6 +48,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW50cnlcUmVjZWlwdFZvdWNoZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Project/Sewapatra/SewaPatra/Views/Entry/ReceiptVoucherList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW50cnlcUmVjZWlwdFZvdWNoZXJMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Project/Sewapatra/SewaPatra/Views/Entry/SewaPatraIssue.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW50cnlcU2V3YVBhdHJhSXNzdWUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
