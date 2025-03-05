@@ -65,12 +65,7 @@
         <div class="row mb-3">
             <label asp-for="Area_Under" class="form-label">Area Under</label>
             <div class="col-3">
-                <select asp-for="Area_Under" class="form-select" aria-label="Select Coordinator">
-                    <option selected>select Coordinator</option>
-                    <option value="1">Ram</option>
-                    <option value="2">Shyam</option>
-                    <!-- You can populate this dynamically from your database -->
-                </select>
+                <select asp-for="Area_Under" asp-items="@ViewBag.Areas" class="form-select" aria-label="Select Coordinator"></select>
             </div>
         </div>
 

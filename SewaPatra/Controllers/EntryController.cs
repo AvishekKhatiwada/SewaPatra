@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SewaPatra.BusinessLayer;
+using SewaPatra.Helpers;
 using SewaPatra.Models;
 
 namespace SewaPatra.Controllers
@@ -9,20 +10,22 @@ namespace SewaPatra.Controllers
         private readonly SewaPatraIssueService _sewaPatraIssueService;
         private readonly PaymentVoucherService _paymentVoucherService;
         private readonly ReceiptVoucherService _receiptVoucherService;
+        private readonly DropDownService _dropDownService;
 
-        public EntryController(SewaPatraIssueService sewaPatraIssueService, PaymentVoucherService paymentVoucherService, ReceiptVoucherService receiptVoucherService)
+        public EntryController(SewaPatraIssueService sewaPatraIssueService, PaymentVoucherService paymentVoucherService,
+            ReceiptVoucherService receiptVoucherService, DropDownService dropDownService)
         {
             _sewaPatraIssueService = sewaPatraIssueService;
             _paymentVoucherService = paymentVoucherService;
             _receiptVoucherService = receiptVoucherService;
-        }
-        public IActionResult Index()
-        {
-            return View();
+            _dropDownService = dropDownService;
         }
         #region SewaPatra Issue
         public IActionResult SewaPatraIssue()
         {
+            ViewBag.DonationBoxes = _dropDownService.GetDonationBoxList();
+            ViewBag.Coordinators = _dropDownService.GetCoordinatorList();
+            ViewBag.Donors = _dropDownService.GetDonorList();
             return View();
         }
         public IActionResult SewaPatraIssueList()

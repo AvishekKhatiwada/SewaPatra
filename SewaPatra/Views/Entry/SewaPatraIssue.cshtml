@@ -39,19 +39,11 @@
         <div class="row mb-2">
             <label asp-for="Donor" style="font-size: 13px;" class="col-sm-2 col-form-label">Donor</label>
             <div class="col-sm-4">
-                <select asp-for="Donor" style="font-size: 10px;" class="form-select" aria-label="Select Donor">
-                    <option selected>Select Donor</option>
-                    <option value="1">Donor1</option>
-                    <option value="2">Donor2</option>
-                </select>
+                <select asp-for="Donor" asp-items="@ViewBag.Donors" style="font-size: 10px;" class="form-select" aria-label="Select Donor"></select>
             </div>
             <label asp-for="Coordinator" style="font-size: 13px;" class="col-sm-2 col-form-label">Coordinator</label>
             <div class="col-sm-4">
-                <select asp-for="Coordinator" style="font-size: 10px;" class="form-select" aria-label="Select Coordinator">
-                    <option selected>Select Coordinator</option>
-                    <option value="1">Test1</option>
-                    <option value="2">Test2</option>
-                </select>
+                <select asp-for="Coordinator" asp-items="@ViewBag.Coordinators" style="font-size: 10px;" class="form-select" aria-label="Select Coordinator"></select>
             </div>
         </div>
         @* <div class="row mb-2">
@@ -60,11 +52,7 @@
         <div class="row mb-2">
             <label asp-for="DonationBox" style="font-size: 13px;" class="col-sm-2 col-form-label">Donation Box</label>
             <div class="col-sm-4">
-                <select asp-for="DonationBox" style="font-size: 10px;" class="form-select" aria-label="Select DonationBox">
-                    <option selected>Select DonationBox</option>
-                    <option value="1">BOX_1_3</option>
-                    <option value="2">BOX_1_2</option>
-                </select>
+                <select asp-for="DonationBox" asp-items="@ViewBag.DonationBoxes" style="font-size: 10px;" class="form-select" aria-label="Select DonationBox"></select>
             </div>
             <label asp-for="Issue_Date" style="font-size: 13px;" class="col-sm-2 col-form-label">Issue Date</label>
             <div class="col-sm-4">

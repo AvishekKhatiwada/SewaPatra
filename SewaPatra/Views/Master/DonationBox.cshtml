@@ -1,37 +1,38 @@
-﻿<div class="card-body">
+﻿@model SewaPatra.Models.DonationBox
+
+@{
+    ViewBag.Title = "Add Donation Box";
+}
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success" role="alert">
+        @ViewBag.Message
+    </div>
+}
+<div class="card-body">
     <div class="pagetitle mt-2">
-        <h1>Add Coordinator</h1>
+        <h1>Add DonationBox</h1>
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.html">Master</a></li>
-                <li class="breadcrumb-item">Coordinator</li>
-                <li class="breadcrumb-item active">Add Coordinator</li>
+                <li class="breadcrumb-item">Donation Box</li>
+                <li class="breadcrumb-item active">Add Donation Box</li>
             </ol>
         </nav>
     </div>
     <form class="row g-3" method="post" asp-action="DonationBox" asp-controller="Master">
-   
-       
-
         <div class="col-md-6">
             <label for="Box_Number" class="form-label">Box_Number</label>
-            <input type="text" class="form-control" id="Box_Number" name="Box_Number">
+            <input type="text" class="form-control" id="Box_Number" Asp-for="Box_Number">
         </div>
-
-    
-       
-
-
         <div class="col-md-4">
             <label for="Status" class="form-label">Status</label>
-            <select class="form-select" id="Status" name="Active" aria-label="Select Status">
+            <select class="form-select" id="Status" asp-for="Active" aria-label="Select Status">
                 <option selected>Choose Status</option>
                 <option value="true">Active</option>
                 <option value="false">Inactive</option>
             </select>
         </div>
-
-      
         <div class="text-center">
             <button type="submit" class="btn btn-primary">Submit</button>
             <button type="reset" class="btn btn-secondary">Reset</button>

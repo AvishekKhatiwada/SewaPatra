@@ -1,23 +1,26 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SewaPatra.BusinessLayer;
+using SewaPatra.Helpers;
 using SewaPatra.Models;
 
 namespace SewaPatra.Controllers
 {
     public class MasterController : Controller
     {
-        public readonly AreaService _AreaService;
-        public readonly CoordinatorService _CoordinatorService;
-        public readonly DonationBoxService _DonationBoxService;
-        public readonly DonorService _DonorService;
+        private readonly AreaService _AreaService;
+        private readonly CoordinatorService _CoordinatorService;
+        private readonly DonationBoxService _DonationBoxService;
+        private readonly DonorService _DonorService;
+        private readonly DropDownService _dropDownService;
 
         public MasterController(AreaService areaService,CoordinatorService coordinatorService,DonationBoxService donationBoxService,
-            DonorService donorService)
+            DonorService donorService,DropDownService dropDownService)
         {
             _AreaService = areaService;
             _CoordinatorService = coordinatorService;
             _DonationBoxService = donationBoxService;
             _DonorService = donorService;
+            _dropDownService = dropDownService;
         }
         #region Area
         public IActionResult AreaList() 
@@ -32,22 +35,30 @@ namespace SewaPatra.Controllers
         [HttpPost]
         public IActionResult Area(Area area)
         {
-            if (ModelState.IsValid)
+            try
             {
-                bool isInserted = _AreaService.InsertArea(area);
-                if (isInserted)
+                if (ModelState.IsValid)
                 {
-                    ViewBag.Message = "Area Added Successfully";
+                    bool isInserted = _AreaService.InsertArea(area);
+                    if (isInserted)
+                    {
+                        ViewBag.Message = "Area Added Successfully";
+                    }
+                    else
+                    {
+                        ViewBag.Message = "Failed to Add Area";
+                    }
                 }
                 else
                 {
-                    ViewBag.Message = "Failed to Add Area";
+                    ViewBag.Message = "Invalid data";
                 }
             }
-            else 
+            catch (Exception ex)
             {
-                ViewBag.Message = "Invalid data";
-            }
+                ViewBag.Message = ex.Message.ToString();
+                return View();
+            }            
             return View();
         }
         public IActionResult EditArea(int id)
@@ -61,7 +72,17 @@ namespace SewaPatra.Controllers
         }
         public IActionResult DeleteArea(int id)
         {
-            bool isDeleted = _AreaService.DeleteArea(id);
+            try 
+            {
+                bool isDeleted = _AreaService.DeleteArea(id);
+                ViewBag.Message = "Area Deleted Successfully";
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Message = ex.Message.ToString();
+                return RedirectToAction("AreaList");
+            }
+            
             return RedirectToAction("AreaList");
         }
         [HttpPost]
@@ -72,9 +93,10 @@ namespace SewaPatra.Controllers
                 bool isUpdated = _AreaService.UpdateArea(model);
                 if (isUpdated)
                 {
+                    TempData["Message"] = "Area updated successfully!";
                     return RedirectToAction("AreaList");
                 }
-                ViewBag.Message = "Update failed!";
+                TempData["Message"] = "Update failed!";
             }
             return View(model);
         }
@@ -82,14 +104,13 @@ namespace SewaPatra.Controllers
         #region Coordinator
         public IActionResult CoordinatorList()
         {
-
             List<Coordinator> coordinators = _CoordinatorService.GetAllCoordinator();
             return View(coordinators);
-        }
-       
+        }      
       
         public IActionResult Coordinator()
         {
+            ViewBag.Areas = _dropDownService.GetAreaList();
             return View();
         }
         [HttpPost]
@@ -116,6 +137,7 @@ namespace SewaPatra.Controllers
         public IActionResult EditCoordinator(int id)
         {
             var coordinator = _CoordinatorService.GetCoordinatorById(id);
+            ViewBag.Areas = _dropDownService.GetAreaList();
             if (coordinator == null)
             {
                 return NotFound();
@@ -143,15 +165,11 @@ namespace SewaPatra.Controllers
         }
         #endregion
         #region DonationBox
-
         public IActionResult DonationBoxList()
         {
-
             List<DonationBox> donationBoxes = _DonationBoxService.GetAllDonationBox();
             return View(donationBoxes);
         }
-      
-
         public IActionResult DonationBox()
         {
             return View();
@@ -205,49 +223,52 @@ namespace SewaPatra.Controllers
             }
             return View(model);
         }
-
         #endregion
-
-
-
-
-
         #region Donor
-
         public IActionResult DonorList()
         {
-
             List<Donor> donor = _DonorService.GetAllDonor();
             return View(donor);
         }
         public IActionResult Donor()
         {
+            ViewBag.Areas = _dropDownService.GetAreaList();
+            ViewBag.Coordinators = _dropDownService.GetCoordinatorList();
             return View();
         }
         [HttpPost]
         public IActionResult Donor(Donor donor)
         {
-            if (ModelState.IsValid)
+            try
             {
-                bool isInserted = _DonorService.InsertDonor(donor);
-                if (isInserted)
+                if (ModelState.IsValid)
                 {
-                    ViewBag.Message = "Donor Added Successfully";
+                    bool isInserted = _DonorService.InsertDonor(donor);
+                    if (isInserted)
+                    {
+                        ViewBag.Message = "Donor Added Successfully";
+                    }
+                    else
+                    {
+                        ViewBag.Message = "Failed to Add Donor";
+                    }
                 }
                 else
                 {
-                    ViewBag.Message = "Failed to Add Donor";
+                    ViewBag.Message = "Invalid data";
                 }
             }
-            else
+            catch (Exception ex)
             {
-                ViewBag.Message = "Invalid data";
-            }
+                ViewBag.Message = ex.Message.ToString();
+                return View();
+            }            
             return View();
         }
         public IActionResult EditDonor(int id)
         {
             var donor = _DonorService.GetDonorById(id);
+            ViewBag.Areas = _dropDownService.GetAreaList();
             if (donor == null)
             {
                 return NotFound();

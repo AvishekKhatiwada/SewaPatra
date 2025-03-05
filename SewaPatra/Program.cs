@@ -1,5 +1,6 @@
 using SewaPatra.BusinessLayer;
 using SewaPatra.DataAccess;
+using SewaPatra.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +22,7 @@ builder.Services.AddSingleton<PaymentVoucherRepository>();
 builder.Services.AddSingleton<PaymentVoucherService>();
 builder.Services.AddSingleton<ReceiptVoucherRepository>();
 builder.Services.AddSingleton<ReceiptVoucherService>();
+builder.Services.AddSingleton<DropDownService>();
 
 
 var app = builder.Build();

@@ -4,6 +4,28 @@
     ViewData["Title"] = "Area List";
 }
 
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success" role="alert">
+        @ViewBag.Message
+    </div>
+}
+<style>
+    #tempMessage {
+        position: fixed; /* Fixed positioning to overlay content */
+        top: 50px; /* Adjust as needed */
+        left: 50%;
+        transform: translateX(-50%); /* Center horizontally */
+        z-index: 1000; /* Ensure it's on top of other elements */
+        /*display: none; /* Initially hidden */
+    }
+</style>
+@if (TempData["Message"] != null)
+{
+    <div id="tempMessage" class="alert alert-info">
+        @TempData["Message"]
+    </div>
+}
 <section class="section">
     <div class="row">
         <div class="col-lg-12">
@@ -22,8 +44,41 @@
                     <div style="display:flex;justify-content:flex-end;">
                         <a asp-controller="Master" asp-action="Area" style="margin-right: 13.6%;font-size: 12px; padding: 2px 8px;" class="btn btn-warning btn-sm">Add New</a>
                     </div>
+                    <div class="table-responsive table-striped">
+                        <table id="DataTable" class="table align-middle display nowrap datatable" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>SN</th>
+                                    <th>Area Name</th>
+                                    <th>Area Type</th>
+                                    @* <th>Under</th> *@
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model != null && Model.Count > 0)
+                                {
+                                    int sno = 1;
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@sno</td>
+                                            <td>@item.Area_name</td>
+                                            <td>@item.Area_type</td>
+                                            @* <td>@item.Under</td> *@
+                                            <td>
+                                                <a asp-controller="Master" asp-action="EditArea" asp-route-id="@item.Id" style="background-color: #F1592A;color: #000000; font-size: 9px; padding: 2px 8px;" class="btn btn-sm">Edit</a>
+                                                <a asp-controller="Master" asp-action="DeleteArea" asp-route-id="@item.Id" style="background-color: #F1592A;color: #000000; font-size: 9px; padding: 2px 8px;" class="btn btn-sm">Delete</a>
+                                            </td>
+                                        </tr>
+                                        sno++;
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
                     <!-- Table with stripped rows -->
-                    <table class="table datatable">
+                   @*  <table class="table datatable">
                         <thead>
                             <tr>
                                 <th>SN</th>
@@ -53,7 +108,7 @@
                                 }
                             }                            
                         </tbody>
-                    </table>
+                    </table> *@
                     <!-- End Table with stripped rows -->
 
                 </div>
