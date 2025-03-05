@@ -1,7 +1,7 @@
 ﻿@model SewaPatra.Models.Donor
 
 @{
-    ViewBag.Title = "Add Donor";
+    ViewBag.Title = "Edit Donor";
 }
 @if (ViewBag.Message != null)
 {
@@ -11,18 +11,17 @@
 }
 <div class="card-body">
     <div class="pagetitle mt-2">
-        <h1>Add Donor</h1>
+        <h1>Edit Donor</h1>
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.html">Master</a></li>
                 <li class="breadcrumb-item">Donor</li>
-                <li class="breadcrumb-item active">Add Donor</li>
+                <li class="breadcrumb-item active">Edit Donor</li>
             </ol>
         </nav>
     </div>
 
     <form class="row g-3" method="post" asp-action="Donor" asp-controller="Master">
-
         <div class="col-md-12">
             <label asp-for="Name" class="form-label">Name</label>
             <input type="text" class="form-control" id="Name" asp-for="Name" required>
@@ -69,7 +68,11 @@
 
         <div class="col-md-4">
             <label asp-for="Coordinator" class="form-label">Coordinator</label>
-            <select id="coordinator" class="form-select" asp-items="@ViewBag.Coordinators" asp-for="Coordinator" required></select>
+            <select id="coordinator" class="form-select" asp-for="Coordinator" required>
+                <option selected>Choose...</option>
+                <option value="1">Coordinator1</option>
+                <!-- Dynamically populated options -->
+            </select>
         </div>
 
         <div class="col-md-4">

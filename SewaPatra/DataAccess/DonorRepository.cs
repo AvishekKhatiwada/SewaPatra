@@ -12,26 +12,33 @@ namespace SewaPatra.DataAccess
         }
         public bool InsertDonor(Donor donor)
         {
-            using (SqlConnection conn = new SqlConnection(_connectionString))
+            try
             {
-                string query = "INSERT INTO Donor_Master (Mobile_No,Name,Address,City,Mobile_no2,Email,Area,Coordinator,Location,Active) VALUES (@Mobile_No, @Name,@Address,@City,@Mobile_no2,@Email,@Area,@Coordinator,@Location,@Active)";
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@Mobile_No", donor.Mobile_No);
-                cmd.Parameters.AddWithValue("@Name", donor.Name);
-                cmd.Parameters.AddWithValue("@Address", donor.Address);
-                cmd.Parameters.AddWithValue("@City", donor.City);
-                cmd.Parameters.AddWithValue("@Mobile_no2", donor.Mobile_no2);
-                cmd.Parameters.AddWithValue("@Email", donor.Email);
-                cmd.Parameters.AddWithValue("@Area", donor.Area);
-                cmd.Parameters.AddWithValue("@Coordinator", donor.Coordinator);
-                cmd.Parameters.AddWithValue("@Location", donor.Location);
-                cmd.Parameters.AddWithValue("@Active", donor.Active);
+                using (SqlConnection conn = new SqlConnection(_connectionString))
+                {
+                    string query = "INSERT INTO Donor_Master (Mobile_No,Name,Address,City,Mobile_no2,Email,Area,Coordinator,Location,Active) VALUES (@Mobile_No, @Name,@Address,@City,@Mobile_no2,@Email,@Area,@Coordinator,@Location,@Active)";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@Mobile_No", donor.Mobile_No);
+                    cmd.Parameters.AddWithValue("@Name", donor.Name);
+                    cmd.Parameters.AddWithValue("@Address", donor.Address);
+                    cmd.Parameters.AddWithValue("@City", donor.City);
+                    cmd.Parameters.AddWithValue("@Mobile_no2", donor.Mobile_no2);
+                    cmd.Parameters.AddWithValue("@Email", donor.Email);
+                    cmd.Parameters.AddWithValue("@Area", donor.Area);
+                    cmd.Parameters.AddWithValue("@Coordinator", donor.Coordinator);
+                    cmd.Parameters.AddWithValue("@Location", donor.Location);
+                    cmd.Parameters.AddWithValue("@Active", donor.Active);
 
-                conn.Open();
-                int rowsAffected = cmd.ExecuteNonQuery();
-                conn.Close();
-                return rowsAffected > 0;
+                    conn.Open();
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    conn.Close();
+                    return rowsAffected > 0;
+                }
             }
+            catch (Exception ex)
+            {
+                throw ex;
+            }            
         }
         public List<Donor> GetAllDonor()
         {
@@ -95,8 +102,7 @@ namespace SewaPatra.DataAccess
                             Area = reader.GetInt32(7),
                             Coordinator = reader.GetInt32(8),
                             Location = reader.GetString(9),
-
-                            // Active = reader.GetBoolean(10),
+                            Active = reader.GetBoolean(10),
                         };
                     }
                 }

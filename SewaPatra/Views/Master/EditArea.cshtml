@@ -31,7 +31,7 @@
             <label asp-for="Area_type" class="form-label">Area Type</label>
             <input type="text" class="form-control" asp-for="Area_type" id="areaType">
         </div>
-        <div class="row mb-3">
+        @* <div class="row mb-3">
             <label asp-for="Under" class="form-label">Under</label>
             <div class="col-3">
                 <select asp-for="Under" class="form-select" aria-label="Select Coordinator">
@@ -40,7 +40,7 @@
                     <option value="2">Shyam</option>
                 </select>
             </div>
-        </div>
+        </div> *@
         <div class="text-Left">
             <button type="submit" class="btn btn-primary">Save</button>
             <a asp-action="AreaList" class="btn btn-secondary">Cancel</a>

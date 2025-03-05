@@ -60,11 +60,7 @@
         <!-- Area Under -->
         <div class="col-md-4">
             <label asp-for="Area_Under" class="form-label">Area</label>
-            <select id="Area_Under" asp-for="Area_Under" class="form-select">
-                <option selected>Choose...</option>
-                <option value="1">Area 1</option>
-                <option value="2">Area 2</option>
-            </select>
+            <select id="Area_Under" asp-for="Area_Under" asp-items="@ViewBag.Areas" class="form-select"></select>
         </div>
 
         <!-- Location -->
