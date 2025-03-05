@@ -324,3 +324,4 @@ C:\SewaPatra\SewaPatra\obj\Debug\net8.0\refint\SewaPatra.dll
 C:\SewaPatra\SewaPatra\obj\Debug\net8.0\SewaPatra.pdb
 C:\SewaPatra\SewaPatra\obj\Debug\net8.0\SewaPatra.genruntimeconfig.cache
 C:\SewaPatra\SewaPatra\obj\Debug\net8.0\ref\SewaPatra.dll
+D:\Projects\SewaPatra\SewaPatra\obj\Debug\net8.0\SewaPatra.sourcelink.json

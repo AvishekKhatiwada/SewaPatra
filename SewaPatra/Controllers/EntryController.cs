@@ -92,6 +92,27 @@ namespace SewaPatra.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public IActionResult ReceiptVoucher(ReceiptVoucher receiptVoucher)
+        {
+            if (ModelState.IsValid)
+            {
+                bool isUpdated = _receiptVoucherService.InsertReceiptVoucher(receiptVoucher);
+                if (isUpdated)
+                {
+                    ViewBag.Message = "Receipt Voucher Inserted Successfully";
+                }
+                else
+                {
+                    ViewBag.Message = "Failed to Insert Receipt Voucher";
+                }
+            }
+            else
+            {
+                ViewBag.Message = "Invalid data";
+            }
+            return View();
+        }
         public IActionResult ReceiptVoucherList()
         {
             List<ReceiptVoucher> receiptVoucher = _receiptVoucherService.GetAllReceiptVoucher();

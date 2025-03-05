@@ -86,7 +86,7 @@ namespace SewaPatra.Controllers
             List<Coordinator> coordinators = _CoordinatorService.GetAllCoordinator();
             return View(coordinators);
         }
-        #region Area
+       
       
         public IActionResult Coordinator()
         {
@@ -141,7 +141,6 @@ namespace SewaPatra.Controllers
             }
             return View(model);
         }
-        #endregion
         #endregion
         #region DonationBox
 
