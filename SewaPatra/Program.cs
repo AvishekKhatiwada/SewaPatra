@@ -23,6 +23,8 @@ builder.Services.AddSingleton<PaymentVoucherService>();
 builder.Services.AddSingleton<ReceiptVoucherRepository>();
 builder.Services.AddSingleton<ReceiptVoucherService>();
 builder.Services.AddSingleton<DropDownService>();
+builder.Services.AddSingleton<ReportRepository>();
+builder.Services.AddSingleton<ReportService>();
 
 
 var app = builder.Build();
