@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SewaPatra.BusinessLayer;
+using SewaPatra.DataAccess;
 using SewaPatra.Helpers;
 using SewaPatra.Models;
 
@@ -108,9 +109,9 @@ namespace SewaPatra.Controllers
             return View(coordinators);
         }      
       
-        public IActionResult Coordinator()
+        public IActionResult Coordinator(General general)
         {
-            ViewBag.Areas = _dropDownService.GetAreaList();
+            ViewBag.Area = general.GetAreas();
             return View();
         }
         [HttpPost]
