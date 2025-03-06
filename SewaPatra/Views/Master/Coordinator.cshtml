@@ -58,14 +58,21 @@
         </div>
 
         <!-- Area Under -->
-        <div class="col-md-4">
-            <label asp-for="Area_Under" class="form-label">Area</label>
-            <select id="Area_Under" asp-for="Area_Under" class="form-select">
-                <option selected>Choose...</option>
-                <option value="1">Area 1</option>
-                <option value="2">Area 2</option>
-            </select>
-        </div>
+       <div class="col-md-4">
+        <label asp-for="Area_Under" class="form-label">Area</label>
+        <select asp-for="Area_Under" class="form-select">
+            <option value="">Choose...</option>
+            @if (ViewBag.AreaList != null)
+            {
+                foreach (var area in ViewBag.Area as List<SelectListItem>)
+                {
+                    <option value="@area.Value">@area.Text</option>
+                }
+            }
+        </select>
+        <span asp-validation-for="Area_Under" class="text-danger"></span>
+</div>
+
 
         <!-- Location -->
         <div class="col-md-4">

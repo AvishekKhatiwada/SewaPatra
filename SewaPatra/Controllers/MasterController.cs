@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SewaPatra.BusinessLayer;
+using SewaPatra.DataAccess;
 using SewaPatra.Models;
 
 namespace SewaPatra.Controllers
@@ -86,10 +87,11 @@ namespace SewaPatra.Controllers
             List<Coordinator> coordinators = _CoordinatorService.GetAllCoordinator();
             return View(coordinators);
         }
-        #region Area
+       
       
-        public IActionResult Coordinator()
+        public IActionResult Coordinator(General general)
         {
+            ViewBag.Area = general.GetAreas();
             return View();
         }
         [HttpPost]
@@ -141,7 +143,7 @@ namespace SewaPatra.Controllers
             }
             return View(model);
         }
-        #endregion
+       
         #endregion
         #region DonationBox
 
