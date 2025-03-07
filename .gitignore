@@ -1,4 +1,5 @@
 # Ignore appsettings.development.json and appsettings.json
+
 appsettings.development.json
 appsettings.json
 

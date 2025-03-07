@@ -97,3 +97,14 @@ Inner Join Coordinator_master CM On CM.Id=RV.Coordinator
 Inner join DonationBox DB ON Db.Id=RV.Sewapatra_No
 Inner Join Donor_master DM ON DM.Id=RV.Donor
 Where 1=1 ORDER BY RV.[Date] ASC
+
+--SewaPatra Issue Register
+SELECT TranId, CONVERT(VARCHAR(10),Entered_Date,103) As Date, SPI.Donor,DM.Name As DonorId,DMA.Area_name As DonorArea, SPI.Coordinator,CM.Name,CMA.Area_name As CoordinatorArea, 
+DonationBox As BoxId,Db.Box_Number As DonationBox,CONVERT(VARCHAR(10),Issue_Date,103) As IssueDate, Recurring, CONVERT(VARCHAR(10),Due_Date,103) As DueDate, Remarks 
+FROM SewaPatraIssue SPI
+INNER JOIN Donor_master DM ON DM.Id=SPI.Donor
+INNER Join Area_Master DMA ON DM.Area=DMA.Id
+INNER JOIN Coordinator_master CM ON CM.Id=SPI.Coordinator
+INNER JOIN Area_Master CMA ON CM.Area_Under=CMA.Id 
+INNER JOIN DonationBox DB ON Db.Id=SPI.DonationBox
+WHERE 1=1 ORDER BY Entered_Date
