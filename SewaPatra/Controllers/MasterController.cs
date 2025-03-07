@@ -109,9 +109,10 @@ namespace SewaPatra.Controllers
             return View(coordinators);
         }      
       
-        public IActionResult Coordinator(General general)
+        public IActionResult Coordinator()
         {
-            ViewBag.Area = general.GetAreas();
+            // ViewBag.Area = general.GetAreas();
+            ViewBag.Areas = _dropDownService.GetAreaList();
             return View();
         }
         [HttpPost]

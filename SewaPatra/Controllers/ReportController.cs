@@ -16,5 +16,9 @@ namespace SewaPatra.Controllers
             List<DonorReport> donorReport = _reportService.GetDonorReport();
             return View(donorReport);
         }
+        public IActionResult SewaPatraIsueRegister() 
+        {
+            return View();
+        }
     }
 }

@@ -34,27 +34,29 @@ namespace SewaPatra.DataAccess
         }
         public List<SewaPatraIssue> GetAllSewaPatraIssue()
         {
+            List<SewaPatraIssue> sewaPatraIssue = new List<SewaPatraIssue>();
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
                 string query = @"SELECT * FROM SewaPatraIssue";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 conn.Open();
-                SqlDataReader reader = cmd.ExecuteReader();
-                List<SewaPatraIssue> sewaPatraIssue = new List<SewaPatraIssue>();
-                if (reader.Read())
+                using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-                    sewaPatraIssue.Add(new SewaPatraIssue
+                    while (reader.Read())
                     {
-                        TranId = reader["TranId"].ToString(),
-                        Entered_Date = Convert.ToDateTime(reader["Entered_Date"]),
-                        Donor = Convert.ToInt32(reader["Donor"]),
-                        Coordinator = Convert.ToInt32(reader["Coordinator"]),
-                        DonationBox = Convert.ToInt32(reader["DonationBox"]),
-                        Issue_Date = Convert.ToDateTime(reader["Issue_Date"]),
-                        Recurring = reader["Recurring"].ToString(),
-                        Due_Date = Convert.ToDateTime(reader["Due_Date"]),
-                        Remarks = reader["Remarks"].ToString()
-                    });
+                        sewaPatraIssue.Add(new SewaPatraIssue
+                        {
+                            TranId = reader["TranId"].ToString(),
+                            Entered_Date = Convert.ToDateTime(reader["Entered_Date"]),
+                            Donor = Convert.ToInt32(reader["Donor"]),
+                            Coordinator = Convert.ToInt32(reader["Coordinator"]),
+                            DonationBox = Convert.ToInt32(reader["DonationBox"]),
+                            Issue_Date = Convert.ToDateTime(reader["Issue_Date"]),
+                            Recurring = reader["Recurring"].ToString(),
+                            Due_Date = Convert.ToDateTime(reader["Due_Date"]),
+                            Remarks = reader["Remarks"].ToString()
+                        });
+                    }
                 }
                 conn.Close();
                 return sewaPatraIssue;
