@@ -1,33 +1,38 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\SewaPatra\\SewaPatra\\SewaPatra.csproj": {}
+    "D:\\Files\\SewaPatra\\SewaPatra\\SewaPatra.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\SewaPatra\\SewaPatra\\SewaPatra.csproj": {
+    "D:\\Files\\SewaPatra\\SewaPatra\\SewaPatra.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\SewaPatra\\SewaPatra\\SewaPatra.csproj",
+        "projectUniqueName": "D:\\Files\\SewaPatra\\SewaPatra\\SewaPatra.csproj",
         "projectName": "SewaPatra",
-        "projectPath": "D:\\Projects\\SewaPatra\\SewaPatra\\SewaPatra.csproj",
-        "packagesPath": "C:\\Users\\avishek\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\SewaPatra\\SewaPatra\\obj\\",
+        "projectPath": "D:\\Files\\SewaPatra\\SewaPatra\\SewaPatra.csproj",
+        "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
+        "outputPath": "D:\\Files\\SewaPatra\\SewaPatra\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files\\DevExpress 24.2\\Components\\Offline Packages",
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Progress\\ToolboxNuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\avishek\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.2.config",
+          "D:\\Files\\SewaPatra\\NuGet.Config",
+          "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 24.2.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Telerik UI for WPF.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\DevExpress 19.2\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\DevExpress 24.2\\Components\\System\\Components\\Packages": {},
+          "C:\\Program Files\\DevExpress 24.2\\DevExtreme\\System\\DevExtreme\\Bin\\AspNetCore": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -46,12 +51,28 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "DevExpress.AspNetCore.Core": {
+              "target": "Package",
+              "version": "[24.2.5, )"
+            },
+            "DevExpress.Win.Design": {
+              "target": "Package",
+              "version": "[24.2.5, )"
+            },
+            "DevExtreme.AspNet.Core": {
+              "target": "Package",
+              "version": "[24.2.5, )"
+            },
+            "DevExtreme.AspNet.Data": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
             "Microsoft.Data.SqlClient": {
               "target": "Package",
               "version": "[6.0.1, )"
@@ -80,7 +101,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

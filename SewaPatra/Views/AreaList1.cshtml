@@ -1,0 +1,96 @@
+﻿@using DevExtreme.AspNet.Mvc
+
+@model List<SewaPatra.Models.Area>
+
+@{
+    ViewData["Title"] = "Area List";
+}
+
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success" role="alert">
+        @ViewBag.Message
+    </div>
+}
+<style>
+    #tempMessage {
+        position: fixed; /* Fixed positioning to overlay content */
+        top: 50px; /* Adjust as needed */
+        left: 50%;
+        transform: translateX(-50%); /* Center horizontally */
+        z-index: 1000; /* Ensure it's on top of other elements */
+        /*display: none; /* Initially hidden */
+    }
+</style>
+@if (TempData["Message"] != null)
+{
+    <div id="tempMessage" class="alert alert-info">
+        @TempData["Message"]
+    </div>
+}
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="pagetitle mt-2">
+                        <h1>Area List</h1>
+                        <nav>
+                            <ol class="breadcrumb">
+                                @* <li class="breadcrumb-item"><a href="index.html">Home</a></li> *@
+                                <li class="breadcrumb-item">Master</li>
+                                <li class="breadcrumb-item active">Area List</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <div style="display:flex;justify-content:flex-end;">
+                        <a asp-controller="Master" asp-action="Area" style="margin-right: 13.6%;font-size: 12px; padding: 2px 8px;" class="btn btn-warning btn-sm">Add New</a>
+                    </div>
+                    <div>
+                        @(Html.DevExtreme().DataGrid()
+                            .ID("gridContainer")
+                            .ShowBorders(true)
+                            .DataSource(Model)
+                            .KeyExpr("Id")
+                             .RemoteOperations(false)
+                            .AllowColumnReordering(true)
+                            .RowAlternationEnabled(true)
+                            .Width("100%")
+                            .ShowBorders(true)
+                            .OnContentReady("contentReady")
+                            .Paging(p => p.PageSize(10))
+                            .Pager(p => p
+                                .Visible(true)
+                                .ShowPageSizeSelector(true)
+                                .AllowedPageSizes(new[] { 10, 25, 50, 100 })
+                            )
+                            .SearchPanel(s => s
+                                .Visible(true)
+                                .HighlightCaseSensitive(true)
+                            )
+                            .GroupPanel(g => g.Visible(true))
+                            .Grouping(g => g.AutoExpandAll(false))
+                            .Columns(c =>
+                            {
+                                c.Add().DataField("Area_name");
+                                c.Add().DataField("Area_type");
+
+                            })
+                        )
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<script>
+    var collapsed = false;
+    function contentReady(e) {
+        if (!collapsed) {
+            collapsed = true;
+            e.component.expandRow(["EnviroCare"]);
+        }
+    }
+</script>

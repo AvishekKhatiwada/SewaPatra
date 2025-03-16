@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SewaPatra.BusinessLayer;
+using SewaPatra.BusinessLayer.Reports;
 using SewaPatra.Models;
+using SewaPatra.Models.ReportModels;
 
 namespace SewaPatra.Controllers
 {
@@ -11,14 +13,12 @@ namespace SewaPatra.Controllers
         {
             _reportService = reportService;
         }
-        public IActionResult DonorReport()
-        {
-            List<DonorReport> donorReport = _reportService.GetDonorReport();
-            return View(donorReport);
-        }
+
         public IActionResult SewaPatraIsueRegister() 
         {
-            return View();
-        }
+            List<SewaPatraIssueRegister> sewaPatraIssueRegisters = _reportService.GetSewaPatraIssueRegister();
+            return View(sewaPatraIssueRegisters);
+        }        
+        
     }
 }

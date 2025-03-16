@@ -1,0 +1,67 @@
+﻿@model List<SewaPatra.Models.SewaPatraReceipt>
+
+@{
+    ViewData["Title"] = "SewaPatra Receipt List";
+}
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="pagetitle mt-2">
+                        <h1>SewaPatra Receipt List</h1>
+                        <nav>
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">Entry</li>
+                                <li class="breadcrumb-item active">SewaPatra Receipt List</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <div style="display:flex;justify-content:flex-end;">
+                        <a asp-controller="Entry" asp-action="SewaPatraReceipt" style="margin-right: 13.6%;font-size: 12px; padding: 2px 8px;" class="btn btn-warning btn-sm">Add New</a>
+                    </div>
+                    <table class="table datatable">
+                        <thead>
+                            <tr>
+                                <th>SN0</th>
+                                <th>Transaction Id</th>
+                                <th>Entered Date</th>
+                                <th>Donor</th>
+                                <th>Coordinator</th>
+                                <th>Donation Box</th>
+                                <th>Issue Date</th>
+                                <th>Remarks</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model != null && Model.Count > 0)
+                            {
+                                int sno = 1;
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@sno</td>
+                                        <td>@item.SPR_TranId</td>
+                                        <td>@item.Date</td>
+                                        <td>@item.Donor</td>
+                                        <td>@item.Coordinator</td>
+                                        <td>@item.DonationBox</td>
+                                        <td>@item.Receive_Date</td>
+                                        <td>@item.Remarks</td>
+                                        <td>
+                                            <a asp-controller="Entry" asp-action="EditSewaPatraReceipt" asp-route-id="@item.SPR_TranId" style="background-color: #F1592A;color: #000000; font-size: 9px; padding: 2px 8px;" class="btn btn-sm">Edit</a>
+                                            <a asp-controller="Entry" asp-action="DeleteSewaPatraReceipt" asp-route-id="@item.SPR_TranId" style="background-color: #F1592A;color: #000000; font-size: 9px; padding: 2px 8px;" class="btn btn-sm">Delete</a>
+                                        </td>
+                                    </tr>
+                                    sno++;
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

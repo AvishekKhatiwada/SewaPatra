@@ -11,8 +11,6 @@ namespace SewaPatra.DataAccess
         {
             _connectionString = configuration.GetConnectionString("DefaultConnection");
         }
-
-
         public bool InsertDonationBox(DonationBox donationBox)
         {
             using (SqlConnection conn = new SqlConnection(_connectionString))
@@ -20,8 +18,7 @@ namespace SewaPatra.DataAccess
                 string query = "INSERT INTO DonationBox (Box_Number, Active) VALUES (@Box_Number, @Active)";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@Box_Number", donationBox.Box_Number);
-                cmd.Parameters.AddWithValue("@Active", donationBox.Active);              
-
+                cmd.Parameters.AddWithValue("@Active", donationBox.Active);
                 conn.Open();
                 int rowsAffected = cmd.ExecuteNonQuery();
                 conn.Close();
@@ -34,7 +31,7 @@ namespace SewaPatra.DataAccess
 
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
-                string query = "SELECT * from DonationBox";
+                string query = "SELECT * from DonationBox where Active='true'";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 conn.Open();
 
@@ -46,8 +43,7 @@ namespace SewaPatra.DataAccess
                         {
                             Id = reader.GetInt32(0),
                             Box_Number = reader.GetString(1),
-                            //Active = reader.GetBoolean(8),
-
+                            Active = reader.GetBoolean(2),
 
                         });
                     }
@@ -73,7 +69,7 @@ namespace SewaPatra.DataAccess
                         {
                             Id = reader.GetInt32(0),
                             Box_Number = reader.GetString(1),
-                            //Active = reader.GetBoolean(8),
+                            Active = reader.GetBoolean(2),
                         };
                     }
                 }
@@ -96,18 +92,16 @@ namespace SewaPatra.DataAccess
                 return rowsAffected > 0;
             }
         }
-        public bool DeleteCoordinator(int id)
+        public bool DeleteDonationBox(int id)
         {
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
-                string query = "Delete from DonationBox WHERE Id = @Id";
+                string query = "Update DonationBox Set Active='false' WHERE Id = @Id";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@Id", id);
-
                 conn.Open();
                 int rowsAffected = cmd.ExecuteNonQuery();
                 conn.Close();
-
                 return rowsAffected > 0;
             }
         }

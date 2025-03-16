@@ -14,70 +14,72 @@
         <h1>Edit Donor</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Master</a></li>
+                <li class="breadcrumb-item">Master</li>
                 <li class="breadcrumb-item">Donor</li>
                 <li class="breadcrumb-item active">Edit Donor</li>
             </ol>
         </nav>
     </div>
 
-    <form class="row g-3" method="post" asp-action="Donor" asp-controller="Master">
+    <form class="row g-3" method="post" asp-action="EditDonor" asp-controller="Master">
+        <input type="hidden" name="Id" asp-for="Id"/>
         <div class="col-md-12">
             <label asp-for="Name" class="form-label">Name</label>
-            <input type="text" class="form-control" id="Name" asp-for="Name" required>
+            <input type="text" class="form-control" asp-for="Name" asp-for="Name" required>
         </div>
 
         <div class="col-md-6">
             <label asp-for="Email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" asp-for="Email" required>
+            <input type="email" class="form-control" asp-for="Email" required>
         </div>
 
         <div class="col-md-6">
             <label asp-for="Mobile_No" class="form-label">Mobile No</label>
-            <input type="tel" class="form-control" id="mobileNo" asp-for="Mobile_No" required>
+            <input type="tel" class="form-control" asp-for="Mobile_No" required>
         </div>
 
         <div class="col-md-6">
             <label asp-for="Address" class="form-label">Address</label>
-            <input type="text" class="form-control" id="address" asp-for="Address" placeholder="University Road, Kalimati" required>
+            <input type="text" class="form-control" asp-for="Address" asp-for="Address" placeholder="University Road, Kalimati" required>
+        </div>
+        <!-- City -->
+        <div class="col-md-6">
+            <label for="City" class="form-label">City</label>
+            <input type="text" class="form-control" asp-for="City" name="City">
         </div>
 
-        <!-- Location -->
+@*         <!-- Location -->
         <div class="col-md-6">
             <label asp-for="Location" class="form-label">Location</label>
-            <input type="text" class="form-control" id="Location" asp-for="Location">
-        </div>
+            <input type="text" class="form-control" asp-for="Location" asp-for="Location">
+        </div> *@
 
         <div class="col-md-6">
             <label asp-for="Mobile_no2" class="form-label">Mobile No 2</label>
-            <input type="tel" class="form-control" id="MobileNo2" asp-for="Mobile_no2">
+            <input type="tel" class="form-control" asp-for="Mobile_no2">
         </div>
 
-        <div class="col-md-4">
+@*         <div class="col-md-4">
             <label asp-for="City" class="form-label">City</label>
-            <select id="city" class="form-select" asp-for="City" required>
+            <select asp-for="city" class="form-select" asp-for="City" required>
                 <option selected>Choose...</option>
                 <option value="ktm">KTM</option>
                 <!-- Dynamically populated options -->
             </select>
-        </div>
+        </div> *@
         <div class="col-md-4">
             <label asp-for="Area" class="form-label">Area</label>
-            <select id="area" asp-items="@ViewBag.Areas" class="form-select" asp-for="Area" required></select>
+            <select asp-items="@ViewBag.Areas" class="form-select" asp-for="Area" required></select>
         </div>
 
         <div class="col-md-4">
             <label asp-for="Coordinator" class="form-label">Coordinator</label>
-            <select id="coordinator" class="form-select" asp-for="Coordinator" required>
-                <option selected>Choose...</option>
-                <option value="1">Coordinator1</option>
-                <!-- Dynamically populated options -->
+            <select asp-items="ViewBag.Coordinators" class="form-select" asp-for="Coordinator" required>
             </select>
         </div>
-
         <div class="col-md-4">
             <label asp-for="Active" class="form-label">Status</label>
-            <select class="form-select" id="Status" asp-for="Active" required>
+            <select class="form-select" asp-for="Active" required>
                 <option selected>select Status</option>
                 <option value="true">Active</option>
                 <option value="false">Inactive</option>
@@ -86,7 +88,7 @@
 
         <div class="text-center">
             <button type="submit" class="btn btn-primary">Submit</button>
-            <button type="reset" class="btn btn-secondary">Reset</button>
+            <a href="~/Master/DonorList" class="btn btn-secondary">Cancel</a>
         </div>
     </form>
 </div>

@@ -1,22 +1,18 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
-
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
-
   <ItemGroup>
-    <Compile Remove="Models\SewaPatraReceipt.cs" />
+    <Content Remove="Views\Report\_SewaPatraIssuePartial.cshtml" />
   </ItemGroup>
-
   <ItemGroup>
-    <None Include="Models\SewaPatraReceipt.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <PackageReference Include="DevExpress.AspNetCore.Core" Version="24.2.5" />
+    <PackageReference Include="DevExpress.Win.Design" Version="24.2.5" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.1" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.2" />
+    <PackageReference Include="DevExtreme.AspNet.Core" Version="24.2.5" />
+    <PackageReference Include="DevExtreme.AspNet.Data" Version="5.0.0" />
   </ItemGroup>
-
 </Project>

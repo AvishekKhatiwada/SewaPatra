@@ -26,10 +26,10 @@ namespace SewaPatra.BusinessLayer
         {
             return _donationBoxRepository.UpdateDonationBox(donationBox);
         }
-        //public bool DeleteCoordinator(int id)
-        //{
-        //    return _donationBoxRepository.DeleteDonationBox(id);
-        //}
+        public bool DeleteDonationBox(int id)
+        {
+            return _donationBoxRepository.DeleteDonationBox(id);
+        }
 
     }
 }

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - SewaPatra</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-@*     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    @*     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/SewaPatra.styles.css" asp-append-version="true" /> *@
 
     <!-- Favicons -->
@@ -15,8 +15,8 @@
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-    
-    
+
+
     <!-- Vendor CSS Files -->
     <link href="~/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="~/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -28,13 +28,26 @@
 
     <!-- Main CSS File -->
     <link href="~/assets/css/style.css" rel="stylesheet">
+
+
+    <link href="~/css/devextreme/bootstrap.css" rel="stylesheet" />
+
+    @* Predefined themes: https://js.devexpress.com/DevExtreme/Guide/Themes_and_Styles/Predefined_Themes/ *@
+    <link href="~/css/devextreme/dx.light.css" rel="stylesheet" />
+
+
+    <script src="~/js/devextreme/jquery.js"></script>
+    <script src="~/js/devextreme/bootstrap.js"></script>
+
+    <script src="~/js/devextreme/aspnet/dx.aspnet.mvc.js"></script>
+    <script src="~/js/devextreme/aspnet/dx.aspnet.data.js"></script>
 </head>
 <body>
     <!-- ======= Header ======= -->
     <header id="header" class="header fixed-top d-flex align-items-center">
         <div class="d-flex align-items-center justify-content-between">
             <i class="bi bi-list toggle-sidebar-btn"></i>
-            <a href="index.html" class="logo d-flex align-items-center">
+            <a style="text-decoration:none;" href="index.html" class="logo d-flex align-items-center">
                 <img src="assets/img/logo.png" alt="">
                 <span class="d-none d-lg-block">SewaPatra</span>
             </a>
@@ -250,7 +263,7 @@
     <!-- ======= Sidebar ======= -->
     <aside id="sidebar" class="sidebar">
         <ul class="sidebar-nav" id="sidebar-nav">
-           @*  <li class="nav-item">
+            @*  <li class="nav-item">
                 <a class="nav-link " asp-action="" asp-controller="Master">
                     <i class="bi bi-grid"></i>
                     <span>Dashboard</span>
@@ -289,22 +302,22 @@
                 </a>
                 <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a asp-area="" asp-controller="Entry" asp-action="SewaPatraIssueList">
+                        <a style="text-decoration:none;" asp-area="" asp-controller="Entry" asp-action="SewaPatraIssueList">
                             <i class="bi bi-circle"></i><span>SewaPatra Issue</span>
                         </a>
                     </li>
                     <li>
-                        <a asp-area="" asp-controller="Entry" asp-action="ReceiptVoucherList">
+                        <a style="text-decoration:none;" asp-area="" asp-controller="Entry" asp-action="ReceiptVoucherList">
                             <i class="bi bi-circle"></i><span>Receipt Voucher</span>
                         </a>
                     </li>
                     <li>
-                        <a asp-area="" asp-controller="Entry" asp-action="PaymentVoucherList">
+                        <a style="text-decoration:none;" asp-area="" asp-controller="Entry" asp-action="PaymentVoucherList">
                             <i class="bi bi-circle"></i><span>Payment Voucher</span>
                         </a>
                     </li>
                     <li>
-                        <a href="forms-elements.html">
+                        <a style="text-decoration:none;" asp-area="" asp-controller="Entry" asp-action="SewaPatraReceiptList">
                             <i class="bi bi-circle"></i><span>SewaPatra Receipt</span>
                         </a>
                     </li>
@@ -321,7 +334,7 @@
                         </a>
                     </li>
                     <li>
-                        <a asp-area="" asp-controller="Report" asp-action="DonorReport">
+                        <a href="tables-data.html">
                             <i class="bi bi-circle"></i><span>Donor Listing</span>
                         </a>
                     </li>
@@ -362,7 +375,7 @@
                     </li>
                 </ul>
             </li><!-- End Tables Nav -->
-            <li class="nav-item">
+           @*  <li class="nav-item">
                 <a class="nav-link collapsed" asp-area="" asp-controller="Account" asp-action="Register">
                     <i class="bi bi-card-list"></i>
                     <span>Register</span>
@@ -374,13 +387,13 @@
                     <i class="bi bi-box-arrow-in-right"></i>
                     <span>Login</span>
                 </a>
-            </li><!-- End Login Page Nav -->
+            </li> *@<!-- End Login Page Nav -->
         </ul>
 
     </aside><!-- End Sidebar-->
 
     <div id="main" class="main">
-       @RenderBody()
+        @RenderBody()
     </div>
 
     <!-- ======= Footer ======= -->
@@ -388,7 +401,7 @@
         <div class="copyright">
             &copy; 2025 - SewaPatra - <a asp-area="" asp-controller="Home" asp-action="Index">Hitech Solution And Services Pvt. Ltd.</a>
         </div>
-        
+
     </footer><!-- End Footer -->
     @* <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

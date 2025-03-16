@@ -11,10 +11,9 @@
 
         public string Email { get; set; }
         public int Area_Under { get; set; }
-        public string location { get; set; }
+        public string? location { get; set; }
         public bool Active { get; set; }
         public DateTime CreatedAt { get; set; }
-
-        
+        public string? AreaName { get; set; }
     }
 }

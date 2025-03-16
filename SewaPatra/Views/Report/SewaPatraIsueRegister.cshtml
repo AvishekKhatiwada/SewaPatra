@@ -1,2 +1,86 @@
-﻿
-<h1>Sewa Patra Issue Register</h1>
+﻿@{
+    ViewData["Title"] = "Sewa Patra Issue Register";
+}
+@model List<SewaPatra.Models.ReportModels.SewaPatraIssueRegister>
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="pagetitle mt-2">
+                        <h1>Sewapatra Issue Register</h1>
+                        <nav>
+                            <ol class="breadcrumb">
+                                @* <li class="breadcrumb-item"><a href="index.html">Home</a></li> *@
+                                <li class="breadcrumb-item">Report</li>
+                                <li class="breadcrumb-item active">SewaPatra Issue Register</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <div id="gridContainer">
+                        @(
+                        Html.DevExtreme().DataGrid()
+                            .ID("SewaPatraRegister")
+                            .ShowBorders(true)
+                            .DataSource(Model)
+                            .KeyExpr("Id")
+                            .RemoteOperations(true)
+                            .AllowColumnReordering(true)
+                            .RowAlternationEnabled(true)
+                            .Width("100%")
+                            .OnContentReady("contentReady")
+                            .Paging(prop => prop.PageSize(10))
+                            .Pager(p => p
+                                .Visible(true)
+                                .ShowPageSizeSelector(true)
+                                .AllowedPageSizes(new[] {10, 25, 50, 100})
+                            )
+                            .SearchPanel(s => s
+                                .Visible(true)
+                                .HighlightCaseSensitive(true)
+                            )
+                            .GroupPanel(g => g.Visible(true))
+                            .Grouping(g => g.AutoExpandAll(false))
+                            .AllowColumnResizing(true)
+                            .Columns(c =>
+                            {
+                                c.Add().DataField("TranId").HeaderCellTemplate(@<text><div style="text-align: center;font-weight:bold;color:black;">TranId</div></text>);
+                                c.Add().DataField("Date").HeaderCellTemplate(@<text><div style="text-align: center;font-weight:bold;color:black;">Date</div></text>);
+                                c.Add().DataField("DonorName").HeaderCellTemplate(@<text><div style="text-align: center;font-weight:bold;color:black;">DonorName</div></text>);
+                                c.Add().DataField("DonorArea").HeaderCellTemplate(@<text><div style="text-align: center;font-weight:bold;color:black;">DonorArea</div></text>);
+                                c.Add().DataField("CoordinatorName").HeaderCellTemplate(@<text><div style="text-align: center;font-weight:bold;color:black;">CoordinatorName</div></text>);
+                                c.Add().DataField("CoordinatorArea").HeaderCellTemplate(@<text><div style="text-align: center;font-weight:bold;color:black;">CoordinatorArea</div></text>);
+                                c.Add().DataField("DonationBox").HeaderCellTemplate(@<text><div style="text-align: center;font-weight:bold;color:black;">DonationBox</div></text>);
+                                c.Add().DataField("Recurring").HeaderCellTemplate(@<text><div style="text-align: center;font-weight:bold;color:black;">Recurring</div></text>);
+                                c.Add().DataField("IssueDate").HeaderCellTemplate(@<text><div style="text-align: center;font-weight:bold;color:black;">IssueDate</div></text>);
+                                c.Add().DataField("DueDate").HeaderCellTemplate(@<text><div style="text-align: center;font-weight:bold;color:black;">DueDate</div></text>);
+                                c.Add().DataField("Remarks").HeaderCellTemplate(@<text><div style="text-align: center;font-weight:bold;color:black;">Remarks</div></text>);
+                            }
+                            )
+                            .RemoteOperations(true)
+                        )
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    var collapsed = false;
+    function dataChanged(e) { // Changed function name to dataChanged
+        if (!collapsed) {
+            collapsed = true;
+            e.component.expandRow(["EnviroCare"]);
+        }
+        // Check if the data source is empty *after* data has changed
+        if (e.component.getDataSource().items().length === 0) {
+            // Display "No data available" message
+            document.getElementById("gridContainer").innerHTML = "<div style='text-align: center; padding: 20px;'>No data available.</div>";
+        } else {
+            // If data is present, make sure the grid is displayed
+            document.getElementById("gridContainer").innerHTML = ""; // Clear the message
+            document.getElementById("gridContainer").appendChild(e.component.element()[0]); // Re-append the grid
+        }
+    }
+</script>

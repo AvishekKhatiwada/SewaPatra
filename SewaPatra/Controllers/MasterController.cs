@@ -31,6 +31,7 @@ namespace SewaPatra.Controllers
         }
         public IActionResult Area()
         {
+            
             return View();
         }
         [HttpPost]
@@ -43,24 +44,24 @@ namespace SewaPatra.Controllers
                     bool isInserted = _AreaService.InsertArea(area);
                     if (isInserted)
                     {
-                        ViewBag.Message = "Area Added Successfully";
+                        TempData["Message"] = "Area Added Successfully";
                     }
                     else
                     {
-                        ViewBag.Message = "Failed to Add Area";
+                        TempData["Message"] = "Failed to Add Area";
                     }
                 }
                 else
                 {
-                    ViewBag.Message = "Invalid data";
+                    TempData["Message"] = "Invalid data";
                 }
             }
             catch (Exception ex)
             {
-                ViewBag.Message = ex.Message.ToString();
-                return View();
+                TempData["Message"] = ex.Message.ToString();
+                return RedirectToAction("Area");
             }            
-            return View();
+            return RedirectToAction("Area");
         }
         public IActionResult EditArea(int id)
         {
@@ -76,11 +77,11 @@ namespace SewaPatra.Controllers
             try 
             {
                 bool isDeleted = _AreaService.DeleteArea(id);
-                ViewBag.Message = "Area Deleted Successfully";
+                TempData["Message"] = "Area Deleted Successfully";
             }
             catch (Exception ex)
             {
-                ViewBag.Message = ex.Message.ToString();
+                TempData["Message"] = ex.Message.ToString();
                 return RedirectToAction("AreaList");
             }
             
@@ -99,19 +100,20 @@ namespace SewaPatra.Controllers
                 }
                 TempData["Message"] = "Update failed!";
             }
-            return View(model);
+            return RedirectToAction("Area");
         }
         #endregion
         #region Coordinator
         public IActionResult CoordinatorList()
         {
+            ViewBag.Message = TempData["Message"];
             List<Coordinator> coordinators = _CoordinatorService.GetAllCoordinator();
             return View(coordinators);
         }      
       
         public IActionResult Coordinator()
         {
-            // ViewBag.Area = general.GetAreas();
+            ViewBag.Message = TempData["Message"];
             ViewBag.Areas = _dropDownService.GetAreaList();
             return View();
         }
@@ -123,18 +125,18 @@ namespace SewaPatra.Controllers
                 bool isInserted = _CoordinatorService.InsertCoordinator(coordinator);
                 if (isInserted)
                 {
-                    ViewBag.Message = "Coordinator Added Successfully";
+                    TempData["Message"] = "Coordinator Added Successfully";
                 }
                 else
                 {
-                    ViewBag.Message = "Failed to Add Coordinator";
+                    TempData["Message"] = "Failed to Add Coordinator";
                 }
             }
             else
             {
-                ViewBag.Message = "Invalid data";
+                TempData["Message"] = "Invalid data";
             }
-            return View();
+            return RedirectToAction("Coordinator");
         }
         public IActionResult EditCoordinator(int id)
         {
@@ -149,6 +151,11 @@ namespace SewaPatra.Controllers
         public IActionResult DeleteCoordinator(int id)
         {
             bool isDeleted = _CoordinatorService.DeleteCoordinator(id);
+            if (isDeleted)
+            {
+                TempData["Message"] = "Coordinator Deleted Successfully!";
+                return RedirectToAction("CoordinatorList");
+            }
             return RedirectToAction("CoordinatorList");
         }
         [HttpPost]
@@ -159,11 +166,12 @@ namespace SewaPatra.Controllers
                 bool isUpdated = _CoordinatorService.UpdateCoordintor(model);
                 if (isUpdated)
                 {
+                    TempData["Message"] = "Coordinator Updated Successfully!";
                     return RedirectToAction("CoordinatorList");
                 }
-                ViewBag.Message = "Update failed!";
+                TempData["Message"] = "Update failed!";
             }
-            return View(model);
+            return RedirectToAction("Coordinator");
         }
         #endregion
         #region DonationBox
@@ -184,18 +192,18 @@ namespace SewaPatra.Controllers
                 bool isInserted = _DonationBoxService.InsertDonationBox(donationBoxes);
                 if (isInserted)
                 {
-                    ViewBag.Message = "Coordinator Added Successfully";
+                    TempData["Message"] = "DonationBox Added Successfully";
                 }
                 else
                 {
-                    ViewBag.Message = "Failed to Add Coordinator";
+                    TempData["Message"] = "Failed to Add DonationBox";
                 }
             }
             else
             {
-                ViewBag.Message = "Invalid data";
+                TempData["Message"] = "Invalid data";
             }
-            return View();
+            return RedirectToAction("DonationBox");
         }
         public IActionResult EditDonationBox(int id)
         {
@@ -206,11 +214,11 @@ namespace SewaPatra.Controllers
             }
             return View(coordinator);
         }
-        //public IActionResult DeleteDonationBox(int id)
-        //{
-        //    bool isDeleted = _DonationBoxService.DeleteDonationBox(id);
-        //    return RedirectToAction("CoordinatorList");
-        //}
+        public IActionResult DeleteDonationBox(int id)
+        {
+            bool isDeleted = _DonationBoxService.DeleteDonationBox(id);
+            return RedirectToAction("CoordinatorList");
+        }
         [HttpPost]
         public IActionResult EditDonationBox(DonationBox model)
         {
@@ -219,23 +227,25 @@ namespace SewaPatra.Controllers
                 bool isUpdated = _DonationBoxService.UpdateDonationBox(model);
                 if (isUpdated)
                 {
-                    return RedirectToAction("CoordinatorList");
+                    return RedirectToAction("DonationBoxList");
                 }
-                ViewBag.Message = "Update failed!";
+                TempData["Message"] = "Update failed!";
             }
-            return View(model);
+            return RedirectToAction("DonationBox");
         }
         #endregion
         #region Donor
         public IActionResult DonorList()
         {
+            ViewBag.Message = TempData["Message"];
             List<Donor> donor = _DonorService.GetAllDonor();
             return View(donor);
         }
         public IActionResult Donor()
-        {
+        {            
             ViewBag.Areas = _dropDownService.GetAreaList();
             ViewBag.Coordinators = _dropDownService.GetCoordinatorList();
+            ViewBag.Message = TempData["Message"];
             return View();
         }
         [HttpPost]
@@ -248,29 +258,30 @@ namespace SewaPatra.Controllers
                     bool isInserted = _DonorService.InsertDonor(donor);
                     if (isInserted)
                     {
-                        ViewBag.Message = "Donor Added Successfully";
+                        TempData["Message"] = "Donor Added Successfully";
                     }
                     else
                     {
-                        ViewBag.Message = "Failed to Add Donor";
+                        TempData["Message"] = "Failed to Add Donor";
                     }
                 }
                 else
                 {
-                    ViewBag.Message = "Invalid data";
+                    TempData["Message"] = "Invalid data";
                 }
             }
             catch (Exception ex)
             {
-                ViewBag.Message = ex.Message.ToString();
-                return View();
+                TempData["Message"] = ex.Message.ToString();
+                return RedirectToAction("Donor");
             }            
-            return View();
+            return RedirectToAction("Donor");
         }
         public IActionResult EditDonor(int id)
         {
             var donor = _DonorService.GetDonorById(id);
             ViewBag.Areas = _dropDownService.GetAreaList();
+            ViewBag.Coordinators = _dropDownService.GetCoordinatorList();
             if (donor == null)
             {
                 return NotFound();
@@ -280,6 +291,11 @@ namespace SewaPatra.Controllers
         public IActionResult DeleteDonor(int id)
         {
             bool isDeleted = _DonorService.DeleteDonor(id);
+            if (isDeleted)
+            {
+                TempData["Message"] = "Donor Deleted Successfully!";
+                return RedirectToAction("DonorList");
+            }
             return RedirectToAction("DonorList");
         }
         [HttpPost]
@@ -290,11 +306,12 @@ namespace SewaPatra.Controllers
                 bool isUpdated = _DonorService.UpdateDonor(model);
                 if (isUpdated)
                 {
+                    TempData["Message"] = "Donor Edited Successfully!";
                     return RedirectToAction("DonorList");
                 }
-                ViewBag.Message = "Update failed!";
+                TempData["Message"] = "Update failed!";
             }
-            return View(model);
+            return RedirectToAction("Donor");
         }
 
         #endregion

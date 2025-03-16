@@ -1,5 +1,6 @@
 ﻿using SewaPatra.DataAccess;
 using SewaPatra.Models;
+using SewaPatra.Models.ReportModels;
 
 
 namespace SewaPatra.BusinessLayer
@@ -10,10 +11,10 @@ namespace SewaPatra.BusinessLayer
         public ReportService(ReportRepository repository)
         {
             _reportRepository = repository;
-        }
-        public List<DonorReport> GetDonorReport()
+        }        
+        public List<SewaPatraIssueRegister> GetSewaPatraIssueRegister()
         {
-            return _reportRepository.GetDonorReport();
+            return _reportRepository.GetSewaPatraIssueRegister();
         }
     }
 }
