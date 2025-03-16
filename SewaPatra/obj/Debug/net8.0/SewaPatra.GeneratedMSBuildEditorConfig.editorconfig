@@ -9,141 +9,161 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = SewaPatra
 build_property.RootNamespace = SewaPatra
-build_property.ProjectDir = D:\Projects\SewaPatra\SewaPatra\
+build_property.ProjectDir = D:\Files\SewaPatra\SewaPatra\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\Projects\SewaPatra\SewaPatra
+build_property.MSBuildProjectDirectory = D:\Files\SewaPatra\SewaPatra
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[D:/Projects/SewaPatra/SewaPatra/Views/Account/Login.cshtml]
+[D:/Files/SewaPatra/SewaPatra/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/SewaPatra/SewaPatra/Views/Account/Register.cshtml]
+[D:/Files/SewaPatra/SewaPatra/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/SewaPatra/SewaPatra/Views/Entry/EditPaymentVoucher.cshtml]
+[D:/Files/SewaPatra/SewaPatra/Views/AreaList1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJlYUxpc3QxLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Files/SewaPatra/SewaPatra/Views/Entry/EditPaymentVoucher.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW50cnlcRWRpdFBheW1lbnRWb3VjaGVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/SewaPatra/SewaPatra/Views/Entry/EditSewaPatraIssue.cshtml]
+[D:/Files/SewaPatra/SewaPatra/Views/Entry/EditSewaPatraIssue.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW50cnlcRWRpdFNld2FQYXRyYUlzc3VlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/SewaPatra/SewaPatra/Views/Entry/PaymentVoucher.cshtml]
+[D:/Files/SewaPatra/SewaPatra/Views/Entry/EditSewaPatraReceipt.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW50cnlcRWRpdFNld2FQYXRyYVJlY2VpcHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Files/SewaPatra/SewaPatra/Views/Entry/PaymentVoucher.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW50cnlcUGF5bWVudFZvdWNoZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/SewaPatra/SewaPatra/Views/Entry/PaymentVoucherList.cshtml]
+[D:/Files/SewaPatra/SewaPatra/Views/Entry/PaymentVoucherList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW50cnlcUGF5bWVudFZvdWNoZXJMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/SewaPatra/SewaPatra/Views/Entry/ReceiptVoucher.cshtml]
+[D:/Files/SewaPatra/SewaPatra/Views/Entry/ReceiptVoucher.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW50cnlcUmVjZWlwdFZvdWNoZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/SewaPatra/SewaPatra/Views/Entry/ReceiptVoucherList.cshtml]
+[D:/Files/SewaPatra/SewaPatra/Views/Entry/ReceiptVoucherList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW50cnlcUmVjZWlwdFZvdWNoZXJMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/SewaPatra/SewaPatra/Views/Entry/SewaPatraIssue.cshtml]
+[D:/Files/SewaPatra/SewaPatra/Views/Entry/SewaPatraIssue.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW50cnlcU2V3YVBhdHJhSXNzdWUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/SewaPatra/SewaPatra/Views/Entry/SewaPatraIssueList.cshtml]
+[D:/Files/SewaPatra/SewaPatra/Views/Entry/SewaPatraIssueList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW50cnlcU2V3YVBhdHJhSXNzdWVMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/SewaPatra/SewaPatra/Views/Home/Index.cshtml]
+[D:/Files/SewaPatra/SewaPatra/Views/Entry/SewaPatraReceipt.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW50cnlcU2V3YVBhdHJhUmVjZWlwdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Files/SewaPatra/SewaPatra/Views/Entry/SewaPatraReceiptList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW50cnlcU2V3YVBhdHJhUmVjZWlwdExpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Files/SewaPatra/SewaPatra/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/SewaPatra/SewaPatra/Views/Home/Privacy.cshtml]
+[D:/Files/SewaPatra/SewaPatra/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/SewaPatra/SewaPatra/Views/Master/Area.cshtml]
+[D:/Files/SewaPatra/SewaPatra/Views/Master/Area.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVyXEFyZWEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/SewaPatra/SewaPatra/Views/Master/AreaList.cshtml]
+[D:/Files/SewaPatra/SewaPatra/Views/Master/AreaList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVyXEFyZWFMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/SewaPatra/SewaPatra/Views/Master/Coordinator.cshtml]
+[D:/Files/SewaPatra/SewaPatra/Views/Master/Coordinator.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVyXENvb3JkaW5hdG9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/SewaPatra/SewaPatra/Views/Master/CoordinatorList.cshtml]
+[D:/Files/SewaPatra/SewaPatra/Views/Master/CoordinatorList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVyXENvb3JkaW5hdG9yTGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/SewaPatra/SewaPatra/Views/Master/DonationBox.cshtml]
+[D:/Files/SewaPatra/SewaPatra/Views/Master/DonationBox.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVyXERvbmF0aW9uQm94LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/SewaPatra/SewaPatra/Views/Master/DonationBoxList.cshtml]
+[D:/Files/SewaPatra/SewaPatra/Views/Master/DonationBoxList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVyXERvbmF0aW9uQm94TGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/SewaPatra/SewaPatra/Views/Master/Donor.cshtml]
+[D:/Files/SewaPatra/SewaPatra/Views/Master/Donor.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVyXERvbm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/SewaPatra/SewaPatra/Views/Master/DonorList.cshtml]
+[D:/Files/SewaPatra/SewaPatra/Views/Master/DonorList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVyXERvbm9yTGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/SewaPatra/SewaPatra/Views/Master/EditArea.cshtml]
+[D:/Files/SewaPatra/SewaPatra/Views/Master/EditArea.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVyXEVkaXRBcmVhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/SewaPatra/SewaPatra/Views/Master/EditCoordinator.cshtml]
+[D:/Files/SewaPatra/SewaPatra/Views/Master/EditCoordinator.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVyXEVkaXRDb29yZGluYXRvci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/SewaPatra/SewaPatra/Views/Master/EditDonationBox.cshtml]
+[D:/Files/SewaPatra/SewaPatra/Views/Master/EditDonationBox.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVyXEVkaXREb25hdGlvbkJveC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/SewaPatra/SewaPatra/Views/Master/EditDonor.cshtml]
+[D:/Files/SewaPatra/SewaPatra/Views/Master/EditDonor.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVyXEVkaXREb25vci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/SewaPatra/SewaPatra/Views/Report/DonorReport.cshtml]
+[D:/Files/SewaPatra/SewaPatra/Views/Report/DonorReport.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0XERvbm9yUmVwb3J0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/SewaPatra/SewaPatra/Views/Report/SewaPatraIsueRegister.cshtml]
+[D:/Files/SewaPatra/SewaPatra/Views/Report/SewaPatraIsueRegister.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0XFNld2FQYXRyYUlzdWVSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/SewaPatra/SewaPatra/Views/Shared/Error.cshtml]
+[D:/Files/SewaPatra/SewaPatra/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/SewaPatra/SewaPatra/Views/Shared/_MainLayout.cshtml]
+[D:/Files/SewaPatra/SewaPatra/Views/Shared/_DevExtremeLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9EZXZFeHRyZW1lTGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Files/SewaPatra/SewaPatra/Views/Shared/_MainLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9NYWluTGF5b3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/SewaPatra/SewaPatra/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/Files/SewaPatra/SewaPatra/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/SewaPatra/SewaPatra/Views/_ViewImports.cshtml]
+[D:/Files/SewaPatra/SewaPatra/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/SewaPatra/SewaPatra/Views/_ViewStart.cshtml]
+[D:/Files/SewaPatra/SewaPatra/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/SewaPatra/SewaPatra/Views/Shared/_Layout.cshtml]
+[D:/Files/SewaPatra/SewaPatra/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-e3lda1mrxv

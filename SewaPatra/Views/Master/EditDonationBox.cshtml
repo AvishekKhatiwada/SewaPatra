@@ -16,7 +16,7 @@
         <h1>Edit Donation Box</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Master</a></li>
+                <li class="breadcrumb-item">Master</li>
                 <li class="breadcrumb-item">Donation Box</li>
                 <li class="breadcrumb-item active">Edit Donation Box</li>
             </ol>
@@ -42,12 +42,9 @@
             </div>
         </div>  *@
 
-
-
-
         <div class="col-md-4">
-            <label for="Status" class="form-label">Status</label>
-            <select class="form-select" id="Status" name="Active" aria-label="Select Status">
+            <label asp-for="Active" class="form-label">Status</label>
+            <select class="form-select" asp-for="Active" name="Active" aria-label="Select Status">
                 <option selected>Choose Status</option>
                 <option value="true">Active</option>
                 <option value="false">Inactive</option>

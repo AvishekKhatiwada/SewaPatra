@@ -3,7 +3,12 @@
 @{
     ViewData["Title"] = "Donor List";
 }
-
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success" role="alert">
+        @ViewBag.Message
+    </div>
+}
 <section class="section">
     <div class="row">
         <div class="col-lg-12">
@@ -23,7 +28,7 @@
                         <a asp-controller="Master" asp-action="Donor" style="margin-right: 13.6%;font-size: 12px; padding: 2px 8px;" class="btn btn-warning btn-sm">Add New</a>
                     </div>
                     <!-- Table with stripped rows -->
-                    <table class="table datatable">
+                    <table class="table datatable table-responsive">
                         <thead>
                             <tr>
                                 <th>SN</th>
@@ -35,7 +40,7 @@
                                 <th>Email</th>
                                 <th>Area</th>
                                 <th>Coordinator</th>
-                                <th>Location</th>
+                                @* <th>Location</th> *@
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -53,9 +58,9 @@
                                         <td>@item.Mobile_No</td>
                                         <td>@item.Mobile_no2</td>
                                         <td>@item.Email</td>
-                                        <td>@item.Area</td>
-                                        <td>@item.Coordinator</td>
-                                        <td>@item.Location</td>
+                                        <td>@item.AreaName</td>
+                                        <td>@item.CoordinatorName</td>
+                                        @* <td>@item.Location</td> *@
                                         <td>
                                             <a asp-controller="Master" asp-action="EditDonor" asp-route-id="@item.Id" style="background-color: #F1592A;color: #000000; font-size: 9px; padding: 2px 8px;" class="btn btn-sm">Edit</a>
                                             <a asp-controller="Master" asp-action="DeleteDonor" asp-route-id="@item.Id" style="background-color: #F1592A;color: #000000; font-size: 9px; padding: 2px 8px;" class="btn btn-sm">Delete</a>

@@ -3,7 +3,12 @@
 @{
     ViewData["Title"] = "Coordinator List";
 }
-
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success" role="alert">
+        @ViewBag.Message
+    </div>
+}
 <section class="section">
     <div class="row">
         <div class="col-lg-12">
@@ -34,9 +39,9 @@
                                     <th>Alt Mobile No</th>
                                     <th>Email</th>
                                     <th>Area</th>
-                                    <th>Location</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
+                                 @*    <th>Location</th> *@
+                                    <th>Status</th>@* 
+                                    <th>Action</th> *@
                                 </tr>
                             </thead>
                             <tbody>
@@ -53,9 +58,9 @@
                                             <td>@item.Mobile_No</td>
                                             <td>@item.Alternate_Mobile_No</td>
                                             <td>@item.Email</td>
-                                            <td>@item.Area_Under</td>
-                                            <td>@item.location</td>
-                                            <td>@item.Active</td>
+                                            <td>@item.AreaName</td>
+                                         @*    <td>@item.location</td> *@
+                                            @* <td>@item.Active</td> *@
                                             <td>
                                                 <a asp-controller="Master" asp-action="EditCoordinator" asp-route-id="@item.Id" style="background-color: #F1592A;color: #000000; font-size: 9px; padding: 2px 8px;" class="btn btn-sm">Edit</a>
                                                 <a asp-controller="Master" asp-action="DeleteCoordinator" asp-route-id="@item.Id" style="background-color: #F1592A;color: #000000; font-size: 9px; padding: 2px 8px;" class="btn btn-sm">Delete</a>

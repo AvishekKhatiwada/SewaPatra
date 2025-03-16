@@ -37,7 +37,15 @@ namespace SewaPatra.DataAccess
             List<SewaPatraIssue> sewaPatraIssue = new List<SewaPatraIssue>();
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
-                string query = @"SELECT * FROM SewaPatraIssue";
+                string query = @"SELECT TranId, Entered_Date, SPI.Donor As DonorId,DM.Name As DonorName,DMA.Area_name As DonorArea, SPI.Coordinator As CoordinatorId,CM.Name As CoordinatorName,CMA.Area_name As CoordinatorArea, 
+                                    DonationBox As BoxId,Db.Box_Number As DonationBox,Issue_Date As IssueDate, Recurring, Due_Date As DueDate, Remarks 
+                                    FROM SewaPatraIssue SPI
+                                    INNER JOIN Donor_master DM ON DM.Id=SPI.Donor
+                                    INNER Join Area_Master DMA ON DM.Area=DMA.Id
+                                    INNER JOIN Coordinator_master CM ON CM.Id=SPI.Coordinator
+                                    INNER JOIN Area_Master CMA ON CM.Area_Under=CMA.Id 
+                                    INNER JOIN DonationBox DB ON Db.Id=SPI.DonationBox
+                                    WHERE 1=1 ORDER BY Entered_Date";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 conn.Open();
                 using (SqlDataReader reader = cmd.ExecuteReader())
@@ -48,13 +56,16 @@ namespace SewaPatra.DataAccess
                         {
                             TranId = reader["TranId"].ToString(),
                             Entered_Date = Convert.ToDateTime(reader["Entered_Date"]),
-                            Donor = Convert.ToInt32(reader["Donor"]),
-                            Coordinator = Convert.ToInt32(reader["Coordinator"]),
-                            DonationBox = Convert.ToInt32(reader["DonationBox"]),
-                            Issue_Date = Convert.ToDateTime(reader["Issue_Date"]),
+                            Donor = Convert.ToInt32(reader["DonorId"]),
+                            Coordinator = Convert.ToInt32(reader["CoordinatorId"]),
+                            DonationBox = Convert.ToInt32(reader["BoxId"]),
+                            Issue_Date = Convert.ToDateTime(reader["IssueDate"]),
                             Recurring = reader["Recurring"].ToString(),
-                            Due_Date = Convert.ToDateTime(reader["Due_Date"]),
-                            Remarks = reader["Remarks"].ToString()
+                            Due_Date = Convert.ToDateTime(reader["DueDate"]),
+                            Remarks = reader["Remarks"].ToString(),
+                            DonorName = reader["DonorName"].ToString(),
+                            Coordinatorname = reader["CoordinatorName"].ToString(),
+                            DonationBoxName = reader["DonationBox"].ToString()
                         });
                     }
                 }

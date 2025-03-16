@@ -10,15 +10,17 @@ namespace SewaPatra.Controllers
         private readonly SewaPatraIssueService _sewaPatraIssueService;
         private readonly PaymentVoucherService _paymentVoucherService;
         private readonly ReceiptVoucherService _receiptVoucherService;
+        private readonly SewaPatraReceiptService _sewaPatraReceiptService;
         private readonly DropDownService _dropDownService;
 
         public EntryController(SewaPatraIssueService sewaPatraIssueService, PaymentVoucherService paymentVoucherService,
-            ReceiptVoucherService receiptVoucherService, DropDownService dropDownService)
+            ReceiptVoucherService receiptVoucherService, DropDownService dropDownService, SewaPatraReceiptService sewaPatraReceiptService)
         {
             _sewaPatraIssueService = sewaPatraIssueService;
             _paymentVoucherService = paymentVoucherService;
             _receiptVoucherService = receiptVoucherService;
             _dropDownService = dropDownService;
+            _sewaPatraReceiptService = sewaPatraReceiptService;
         }
         #region SewaPatra Issue
         public IActionResult SewaPatraIssue()
@@ -26,37 +28,49 @@ namespace SewaPatra.Controllers
             ViewBag.DonationBoxes = _dropDownService.GetDonationBoxList();
             ViewBag.Coordinators = _dropDownService.GetCoordinatorList();
             ViewBag.Donors = _dropDownService.GetDonorList();
+            ViewBag.Message = TempData["Message"];
             return View();
         }
         public IActionResult SewaPatraIssueList()
         {
             List<SewaPatraIssue> sewaPatraIssue = _sewaPatraIssueService.GetAllSewaPatraIssue();
+            ViewBag.Message = TempData["Message"];
             return View(sewaPatraIssue);
         }
         [HttpPost]
         public IActionResult SewaPatraIssue(SewaPatraIssue sewaPatraIssue)
         {
-            if (ModelState.IsValid)
+            try
             {
-                bool isInserted = _sewaPatraIssueService.InsertSewaPatraIssue(sewaPatraIssue);
-                if (isInserted)
+                if (ModelState.IsValid)
                 {
-                    ViewBag.Message = "SewaPatra Issue Added Successfully";
+                    bool isInserted = _sewaPatraIssueService.InsertSewaPatraIssue(sewaPatraIssue);
+                    if (isInserted)
+                    {
+                        TempData["Message"] = "SewaPatra Issue Added Successfully";
+                    }
+                    else
+                    {
+                        TempData["Message"] = "Failed to Add SewaPatra Issue";
+                    }
                 }
                 else
                 {
-                    ViewBag.Message = "Failed to Add SewaPatra Issue";
+                    TempData["Message"] = "Invalid data";
                 }
             }
-            else
+            catch (Exception Ex)
             {
-                ViewBag.Message = "Invalid data";
+                TempData["Message"] = Ex.Message.ToString();
             }
-            return View();
+            return RedirectToAction("SewaPatraIssue");
         }
         public IActionResult EditSewaPatraIssue(string id)
         {
             var sewaPatraIssue = _sewaPatraIssueService.GetSewaPatraIssueById(id);
+            ViewBag.DonationBoxes = _dropDownService.GetDonationBoxList();
+            ViewBag.Coordinators = _dropDownService.GetCoordinatorList();
+            ViewBag.Donors = _dropDownService.GetDonorList();
             if (sewaPatraIssue == null)
             {
                 return NotFound();
@@ -66,33 +80,56 @@ namespace SewaPatra.Controllers
         [HttpPost]
         public IActionResult EditSewaPatraIssue(SewaPatraIssue sewaPatraIssue)
         {
-            if (ModelState.IsValid)
+            try
             {
-                bool isUpdated = _sewaPatraIssueService.UpdateSewaPatraIssue(sewaPatraIssue);
-                if (isUpdated)
+                if (ModelState.IsValid)
                 {
-                    ViewBag.Message = "SewaPatra Issue Updated Successfully";
+                    bool isUpdated = _sewaPatraIssueService.UpdateSewaPatraIssue(sewaPatraIssue);
+                    if (isUpdated)
+                    {
+                        TempData["Message"] = "SewaPatra Issue Updated Successfully";
+                    }
+                    else
+                    {
+                        TempData["Message"] = "Failed to Update SewaPatra Issue";
+                    }
                 }
                 else
                 {
-                    ViewBag.Message = "Failed to Update SewaPatra Issue";
+                    TempData["Message"] = "Invalid data";
                 }
             }
-            else
+            catch (Exception Ex)
             {
-                ViewBag.Message = "Invalid data";
-            }
-            return View();
+                TempData["Message"] = Ex.Message.ToString();
+            }            
+            return RedirectToAction("SewaPatraIssueList");
         }
         public IActionResult DeleteSewaPatraIssue(string id)
         {
-            bool isDeleted = _sewaPatraIssueService.DeleteSewaPatraIssue(id);
+            try 
+            {
+                bool isDeleted = _sewaPatraIssueService.DeleteSewaPatraIssue(id);
+                if (isDeleted)
+                {
+                    TempData["Message"] = "SewaPatra Issue Deleted Successfully!";
+                }
+                else 
+                {
+                    TempData["Message"] = "Failed To Delete SewaPatra Issue!";
+                }
+            }      
+            catch(Exception Ex)
+            {
+                TempData["Message"] = Ex.Message.ToString();
+            }
             return RedirectToAction("SewaPatraIssueList");
         }
         #endregion
         #region Receipt Voucher
         public IActionResult ReceiptVoucher()
         {
+            ViewBag.Message = TempData["Message"];
             return View();
         }
         [HttpPost]
@@ -103,21 +140,22 @@ namespace SewaPatra.Controllers
                 bool isUpdated = _receiptVoucherService.InsertReceiptVoucher(receiptVoucher);
                 if (isUpdated)
                 {
-                    ViewBag.Message = "Receipt Voucher Inserted Successfully";
+                    TempData["Message"] = "Receipt Voucher Inserted Successfully";
                 }
                 else
                 {
-                    ViewBag.Message = "Failed to Insert Receipt Voucher";
+                    TempData["Message"] = "Failed to Insert Receipt Voucher";
                 }
             }
             else
             {
-                ViewBag.Message = "Invalid data";
+                TempData["Message"] = "Invalid data";
             }
             return View();
         }
         public IActionResult ReceiptVoucherList()
         {
+            ViewBag.Message = TempData["Message"];
             List<ReceiptVoucher> receiptVoucher = _receiptVoucherService.GetAllReceiptVoucher();
             return View(receiptVoucher);
         }
@@ -125,10 +163,12 @@ namespace SewaPatra.Controllers
         #region Payment Voucher
         public IActionResult PaymentVoucher()
         {
+            ViewBag.Message = TempData["Message"];
             return View();
         }
         public IActionResult PaymentVoucherList()
         {
+            ViewBag.Message = TempData["Message"];
             List<PaymentVoucher> paymentVoucher = _paymentVoucherService.GetAllPaymentVoucher();
             return View(paymentVoucher);
         }
@@ -141,16 +181,16 @@ namespace SewaPatra.Controllers
                 bool isInserted = _paymentVoucherService.InsertPaymentVoucher(paymentVoucher);
                 if (isInserted)
                 {
-                    ViewBag.Message = "Payment Voucher Added Successfully";
+                    TempData["Message"] = "Payment Voucher Added Successfully";
                 }
                 else
                 {
-                    ViewBag.Message = "Failed to Add Payment Voucher Issue";
+                    TempData["Message"] = "Failed to Add Payment Voucher Issue";
                 }
             }
             else
             {
-                ViewBag.Message = "Invalid data";
+                TempData["Message"] = "Invalid data";
             }
             return View();
         }
@@ -171,16 +211,16 @@ namespace SewaPatra.Controllers
                 bool isUpdated = _paymentVoucherService.UpdatePaymentVoucher(paymentVoucher);
                 if (isUpdated)
                 {
-                    ViewBag.Message = "Payment Voucher Updated Successfully";
+                    TempData["Message"] = "Payment Voucher Updated Successfully";
                 }
                 else
                 {
-                    ViewBag.Message = "Failed to Update Payment Voucher";
+                    TempData["Message"] = "Failed to Update Payment Voucher";
                 }
             }
             else
             {
-                ViewBag.Message = "Invalid data";
+                TempData["Message"] = "Invalid data";
             }
             return View();
         }
@@ -188,6 +228,78 @@ namespace SewaPatra.Controllers
         {
             bool isDeleted = _paymentVoucherService.DeletePaymentVoucher(id);
             return RedirectToAction("PaymentVoucherList");
+        }
+        #endregion
+        #region SewaPatra Receipt
+        public IActionResult SewaPatraReceipt()
+        {
+            ViewBag.Message = TempData["Message"];
+            ViewBag.DonationBoxes = _dropDownService.GetDonationBoxList();
+            ViewBag.Coordinators = _dropDownService.GetCoordinatorList();
+            ViewBag.Donors = _dropDownService.GetDonorList();
+            return View();
+        }
+        public IActionResult SewaPatraReceiptList()
+        {
+            ViewBag.Message = TempData["Message"];
+            List<SewaPatraReceipt> sewaPatraReceipt = _sewaPatraReceiptService.GetAllSewaPatraReceipt();
+            return View(sewaPatraReceipt);
+        }
+        [HttpPost]
+        public IActionResult SewaPatraReceipt(SewaPatraReceipt sewaPatraReceipt)
+        {
+            if (ModelState.IsValid)
+            {
+                bool isInserted = _sewaPatraReceiptService.InsertSewaPatraReceipt(sewaPatraReceipt);
+                if (isInserted)
+                {
+                    TempData["Message"] = "SewaPatra Receipt Added Successfully";
+                }
+                else
+                {
+                    TempData["Message"] = "Failed to Add SewaPatra Receipt";
+                }
+            }
+            else
+            {
+                TempData["Message"] = "Invalid data";
+            }
+            return View();
+        }
+        public IActionResult EditSewaPatraReceipt(string id)
+        {
+            var sewaPatraReceipt = _sewaPatraReceiptService.GetSewaPatraReceiptById(id);
+            if (sewaPatraReceipt == null)
+            {
+                return NotFound();
+            }
+            return View(sewaPatraReceipt);
+        }
+        [HttpPost]
+        public IActionResult EditSewaPatraReceipt(SewaPatraReceipt sewaPatraReceipt)
+        {
+            if (ModelState.IsValid)
+            {
+                bool isUpdated = _sewaPatraReceiptService.UpdateSewaPatraReceipt(sewaPatraReceipt);
+                if (isUpdated)
+                {
+                    TempData["Message"] = "SewaPatra Receipt Updated Successfully";
+                }
+                else
+                {
+                    TempData["Message"] = "Failed to Update SewaPatra Receipt";
+                }
+            }
+            else
+            {
+                TempData["Message"] = "Invalid data";
+            }
+            return View();
+        }
+        public IActionResult DeleteSewaPatraReceipt(string id)
+        {
+            bool isDeleted = _sewaPatraReceiptService.DeleteSewaPatraReceipt(id);
+            return RedirectToAction("SewaPatraReceiptList");
         }
         #endregion
     }

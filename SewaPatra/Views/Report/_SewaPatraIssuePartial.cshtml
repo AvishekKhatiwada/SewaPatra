@@ -1,0 +1,32 @@
+﻿@model IEnumerable<SewaPatra.Models.SewaPatraIssue>
+
+@{
+    var grid = Html.DevExpress().GridView(settings =>
+    {
+        settings.Name = "inventoryGridView";
+        settings.CallbackRouteValues = new { Controller = "Inventory", Action = "GridViewPartial" };
+
+        settings.KeyFieldName = "Code";
+        settings.DataSource = Model;
+
+        settings.Columns.Add(column => { column.FieldName = "Code"; column.Caption = "Code"; });
+        settings.Columns.Add(column => { column.FieldName = "Product"; column.Caption = "Product"; });
+        settings.Columns.Add(column => { column.FieldName = "Generic"; column.Caption = "Generic"; });
+        settings.Columns.Add(column => { column.FieldName = "Unit"; column.Caption = "Unit"; });
+        settings.Columns.Add(column => { column.FieldName = "Balance"; column.Caption = "Balance"; });
+        settings.Columns.Add(column => { column.FieldName = "GroupShortName"; column.Caption = "Group Short Name"; });
+        settings.Columns.Add(column => { column.FieldName = "GroupName2"; column.Caption = "Group Name 2"; });
+        settings.Columns.Add(column => { column.FieldName = "Godown"; column.Caption = "Godown"; });
+        settings.Columns.Add(column => { column.FieldName = "OpeningBalance"; column.Caption = "Opening Balance"; });
+        settings.Columns.Add(column => { column.FieldName = "AltBalance"; column.Caption = "Alt Balance"; });
+        settings.Columns.Add(column => { column.FieldName = "OpeningValue"; column.Caption = "Opening Value"; });
+        settings.Columns.Add(column => { column.FieldName = "Receive"; column.Caption = "Receive"; });
+
+        settings.SettingsPager.Visible = true;
+        settings.SettingsPager.PageSize = 10;
+        settings.Settings.ShowFilterRow = true;
+        settings.SettingsBehavior.AllowSort = true;
+    });
+}
+
+@grid.GetHtml()

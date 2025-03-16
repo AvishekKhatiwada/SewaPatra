@@ -1,4 +1,5 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using Microsoft.AspNetCore.Mvc.Razor;
+using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using SewaPatra.Models;
 
@@ -17,7 +18,7 @@ namespace SewaPatra.DataAccess
         {
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
-                string query = "INSERT INTO Coordinator_master (Name, Mobile_No, Alternate_Mobile_No,Address,City,Email,Area_Under,CreatedAt) VALUES (@Name, @Mobile_No, @Alternate_Mobile_No,@Address,@City,@Email,@Area_Under,@CreatedAt)";
+                string query = "INSERT INTO Coordinator_master (Name, Mobile_No, Alternate_Mobile_No,Address,City,Email,Area_Under,Active,CreatedAt) VALUES (@Name, @Mobile_No, @Alternate_Mobile_No,@Address,@City,@Email,@Area_Under,@Active,@CreatedAt)";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@Name", coordinator.Name);
                 cmd.Parameters.AddWithValue("@Mobile_No", coordinator.Mobile_No);
@@ -26,6 +27,7 @@ namespace SewaPatra.DataAccess
                 cmd.Parameters.AddWithValue("@City", coordinator.City);
                 cmd.Parameters.AddWithValue("@Email", coordinator.Email);
                 cmd.Parameters.AddWithValue("@Area_Under", coordinator.Area_Under);
+                cmd.Parameters.AddWithValue("@Active", coordinator.Active);
                 cmd.Parameters.AddWithValue("@CreatedAt", coordinator.CreatedAt);
                
                 conn.Open();
@@ -37,10 +39,11 @@ namespace SewaPatra.DataAccess
         public List<Coordinator> GetAllCoordinator()
         {
             List<Coordinator> coordinator = new List<Coordinator>();
-
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
-                string query = "SELECT *from Coordinator_master";
+                string query = @"SELECT CM.ID, Name, Mobile_No, Alternate_Mobile_No, [Address], City, Email, Area_Under, AM.Area_name , Active, CreatedAt 
+                                    from Coordinator_master CM
+                                    INNER JOIN Area_Master AM ON AM.ID=Cm.Area_Under Where CM.Active='true'";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 conn.Open();
 
@@ -50,17 +53,16 @@ namespace SewaPatra.DataAccess
                     {
                         coordinator.Add(new Coordinator
                         {
-                            Id = reader.GetInt32(0),
-                            Name = reader.GetString(1),
-                            Mobile_No = reader.GetString(2),
-                            Alternate_Mobile_No = reader.GetString(3),
-                            Address = reader.GetString(4),
-                            City = reader.GetString(5),
-                            Email = reader.GetString(6),
-                           // Area_Under = reader.GetInt32(7),
+                            Id = Convert.ToInt32(reader["ID"]),
+                            Name = reader["Name"].ToString(),
+                            Mobile_No = reader["Mobile_No"].ToString(),
+                            Alternate_Mobile_No = reader["Alternate_Mobile_No"].ToString(),
+                            Address = reader["Address"].ToString(),
+                            City = reader["City"].ToString(),
+                            Email = reader["Email"].ToString(),
+                            Area_Under = Convert.ToInt32(reader["Area_Under"]),
+                            AreaName = reader["Area_name"].ToString(),
                             //Active = reader.GetBoolean(8),
-
-
                         });
                     }
                 }
@@ -83,15 +85,15 @@ namespace SewaPatra.DataAccess
                     {
                         coordinator = new Coordinator
                         {
-                            Id = reader.GetInt32(0),
-                            Name = reader.GetString(1),
-                            Mobile_No = reader.GetString(2),
-                            Alternate_Mobile_No = reader.GetString(3),
-                            Address = reader.GetString(4),
-                            City = reader.GetString(5),
-                            Email = reader.GetString(6),
-                        // Area_Under = reader.GetInt32(7),
-                           //Active = reader.GetBoolean(8),
+                            Id = Convert.ToInt32(reader["ID"]),
+                            Name = reader["Name"].ToString(),
+                            Mobile_No = reader["Mobile_No"].ToString(),
+                            Alternate_Mobile_No = reader["Alternate_Mobile_No"].ToString(),
+                            Address = reader["Address"].ToString(),
+                            City = reader["City"].ToString(),
+                            Email = reader["Email"].ToString(),
+                            Area_Under = Convert.ToInt32(reader["Area_Under"]),
+                            Active = Convert.ToBoolean(reader["Active"])
                         };
                     }
                 }
@@ -113,12 +115,9 @@ namespace SewaPatra.DataAccess
                 cmd.Parameters.AddWithValue("@Address", coordinator.Address);
                 cmd.Parameters.AddWithValue("@City", coordinator.City);
                 cmd.Parameters.AddWithValue("@Active", coordinator.Active);
-                
-
                 conn.Open();
                 int rowsAffected = cmd.ExecuteNonQuery();
                 conn.Close();
-
                 return rowsAffected > 0;
             }
         }

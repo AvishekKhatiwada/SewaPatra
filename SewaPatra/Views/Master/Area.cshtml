@@ -4,9 +4,10 @@
     ViewBag.Title = "Add Area";
 }
 
-@if(ViewBag.Message != null){
+@if (TempData["Message"] != null)
+{
     <div class="alert alert-success" role="alert">
-        @ViewBag.Message
+        @TempData["Message"]
     </div>
 }
 <div class="card-body">
@@ -14,7 +15,7 @@
         <h1>Add Area</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Master</a></li>
+                <li class="breadcrumb-item">Master</li>
                 <li class="breadcrumb-item">Area</li>
                 <li class="breadcrumb-item active">Add Area</li>
             </ol>
@@ -24,11 +25,11 @@
     <form class="row g-3" method="post" asp-action="Area" asp-controller="Master">
         <div class="col-3">
             <label asp-for="Area_name" class="form-label">Area Name</label>
-            <input type="text" class="form-control" asp-for="Area_name" id="areaName">
+            <input type="text" class="form-control" asp-for="Area_name" id="areaName" required>
         </div>
         <div class="col-3">
             <label asp-for="Area_type" class="form-label">Area Type</label>
-            <input type="text" class="form-control" asp-for="Area_type" id="areaType">
+            <input type="text" class="form-control" asp-for="Area_type" id="areaType" required>
         </div>
        @*  <div class="row mb-3">
             <label asp-for="Under" class="form-label">Under</label>

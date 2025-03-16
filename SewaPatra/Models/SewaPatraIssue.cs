@@ -19,6 +19,9 @@ namespace SewaPatra.Models
         public string? Recurring { get; set; }
         public DateTime? Due_Date { get; set; }
         public string? Remarks { get; set; }
+        public string? DonorName { get; set; }
+        public string? Coordinatorname { get; set; }
+        public string? DonationBoxName { get; set; }
 
     }
 }

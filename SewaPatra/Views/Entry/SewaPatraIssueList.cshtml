@@ -23,7 +23,8 @@
                     <table class="table datatable">
                         <thead>
                             <tr>
-                                <th>Transaction Id</th>
+                                <th>SNo</th>
+                                <th>Tran. Id</th>
                                 <th>Entered Date</th>
                                 <th>Donor</th>
                                 <th>Coordinator</th>
@@ -43,13 +44,14 @@
                                 {
                                     <tr>
                                         <td>@sno</td>
-                                        <td>@item.Entered_Date</td>
-                                        <td>@item.Donor</td>
-                                        <td>@item.Coordinator</td>
-                                        <td>@item.DonationBox</td>
-                                        <td>@item.Issue_Date</td>
+                                        <td>@item.TranId</td>
+                                        <td>@item.Entered_Date.ToString("dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture) </td>
+                                        <td>@item.DonorName</td>
+                                        <td>@item.Coordinatorname</td>
+                                        <td>@item.DonationBoxName</td>
+                                        <td>@item.Issue_Date.ToString("dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture) </td>
                                         <td>@item.Recurring</td>
-                                        <td>@item.Due_Date</td>
+                                        <td>@item.Due_Date.Value.ToString("dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture) </td>
                                         <td>@item.Remarks</td>
                                         <td>
                                             <a asp-controller="Entry" asp-action="EditSewaPatraIssue" asp-route-id="@item.TranId" style="background-color: #F1592A;color: #000000; font-size: 9px; padding: 2px 8px;" class="btn btn-sm">Edit</a>

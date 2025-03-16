@@ -14,7 +14,7 @@
         <h1>Add Coordinator</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Master</a></li>
+                <li class="breadcrumb-item">Master</li>
                 <li class="breadcrumb-item">Coordinator</li>
                 <li class="breadcrumb-item active">Add Coordinator</li>
             </ol>
@@ -24,37 +24,37 @@
         <!-- Name -->
         <div class="col-md-12">
             <label for="Name" class="form-label">Name</label>
-            <input type="text" class="form-control" id="Name" name="Name" required>
+            <input type="text" class="form-control" asp-for="Name" name="Name" required>
         </div>
 
         <!-- Email -->
         <div class="col-md-6">
             <label for="Email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="Email" name="Email">
+            <input type="email" class="form-control" asp-for="Email" name="Email">
         </div>
 
         <!-- Mobile No -->
         <div class="col-md-6">
             <label for="Mobile_No" class="form-label">Mobile No</label>
-            <input type="text" class="form-control" id="Mobile_No" name="Mobile_No">
+            <input type="text" class="form-control" asp-for="Mobile_No" name="Mobile_No">
         </div>
 
         <!-- Address -->
         <div class="col-12">
             <label for="Address" class="form-label">Address</label>
-            <input type="text" class="form-control" id="Address" name="Address" placeholder="University Road, Kalimati">
+            <input type="text" class="form-control" asp-for="Address" name="Address" placeholder="University Road, Kalimati">
         </div>
 
         <!-- Alternate Mobile No -->
         <div class="col-md-6">
             <label for="Alternate_Mobile_No" class="form-label">Alternate Mobile No</label>
-            <input type="text" class="form-control" id="Alternate_Mobile_No" name="Alternate_Mobile_No">
+            <input type="text" class="form-control" asp-for="Alternate_Mobile_No" name="Alternate_Mobile_No">
         </div>
 
         <!-- City -->
         <div class="col-md-6">
-            <label for="City" class="form-label">City</label>
-            <input type="text" class="form-control" id="City" name="City">
+            <label asp-for="City" class="form-label">City</label>
+            <input type="text" class="form-control" asp-for="City" name="City">
         </div>
 
         <!-- Area Under -->
@@ -66,15 +66,15 @@
 
 
         <!-- Location -->
-        <div class="col-md-4">
+       @*  <div class="col-md-4">
             <label for="Location" class="form-label">Location</label>
-            <input type="text" class="form-control" id="Location" name="Location">
-        </div>
+            <input type="text" class="form-control" asp-for="Location" name="Location">
+        </div> *@
 
         <!-- Status -->
         <div class="col-md-4">
             <label for="Status" class="form-label">Status</label>
-            <select class="form-select" id="Status" name="Active" aria-label="Select Status">
+            <select class="form-select" asp-for="Active" name="Active" aria-label="Select Status">
                 <option selected>Choose Status</option>
                 <option value="true">Active</option>
                 <option value="false">Inactive</option>
@@ -82,12 +82,12 @@
         </div>
 
         <!-- CreatedAt -->
-        <input type="hidden" id="CreatedAt" name="CreatedAt" value="@DateTime.Now" />
+        <input type="hidden" asp-for="CreatedAt" name="CreatedAt" value="@DateTime.Now" />
 
         <!-- Submit and Reset Buttons -->
         <div class="text-center">
             <button type="submit" class="btn btn-primary">Submit</button>
-            <button type="reset" class="btn btn-secondary">Reset</button>
+            <a href="~/Master/CoordinatorList" class="btn btn-primary">Cancel</a>
         </div>
     </form>
 </div>
